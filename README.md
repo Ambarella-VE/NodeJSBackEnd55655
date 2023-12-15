@@ -34,7 +34,6 @@ La clase `UserManager` extiende la funcionalidad de la clase `ListManager` para 
 
 La clase `ProductsManager` extiende la funcionalidad de la clase `ListManager` para gestionar datos de productos.
 
-
 - **`constructor`**: Crea una instancia de `ProductsManager` sin realizar ninguna acción adicional.
 
 - **`add`**: Agrega un nuevo producto al sistema verificando la existencia de productos con el mismo código. Si ya existe un producto con el mismo código, se lanza un error; de lo contrario, se asigna un ID único al producto.
