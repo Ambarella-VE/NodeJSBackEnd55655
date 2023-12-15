@@ -1,0 +1,11 @@
+{
+  "name": "node55655",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type":"git",
+    "url":"https://github.com/Ambarella-VE/NodeJSBackEnd55655.git"
+  },
+  "author": "Ambar Canonicco",
+  "license": "MIT"
+}
