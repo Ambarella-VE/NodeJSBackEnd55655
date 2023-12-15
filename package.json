@@ -18,5 +18,8 @@
   },
   "scripts": {
     "test": "jest"
+  },
+  "dependencies": {
+    "node-emoji": "^2.1.3"
   }
 }
