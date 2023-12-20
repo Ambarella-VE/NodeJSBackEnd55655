@@ -1,6 +1,6 @@
 // ProductsManager.test.js
 import { describe, expect, test, beforeEach } from '@jest/globals';
-import ProductsManager from './ProductsManager';
+import { ProductsManager } from './ProductsManager.js';
 
 describe('ProductsManager', () => {
   let productsManager;

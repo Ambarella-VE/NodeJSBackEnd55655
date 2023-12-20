@@ -7,8 +7,9 @@
   - [Clase `ProductsManager`](#clase-productsmanager)
 - [Sprint 2 - Clases 3 y 4](#sprint-2---clases-3-y-4)
   - [Clase `ListManager` (Actualización)](#clase-listmanager-actualización)
-  - [Clase `ProductsManager`](#clase-productsmanager-1)
+  - [Clase `ProductsManager` (Actualización)](#clase-productsmanager-actualización)
   - [Clase `UsersManager`](#clase-usersmanager)
+- [Sprint 3 - Clases 5 y 6](#sprint-3---clases-5-y-6)
 
 ## Sprint 1 - Clases 1 y 2
 
@@ -54,10 +55,12 @@ La clase `ListManager` ha sido actualizada para incorporar la gestión de archiv
 
 - **`saveToFile`**: Guarda la lista de elementos en un archivo para persistencia de datos utilizando el módulo `fs`.
 
-### Clase `ProductsManager`
+### Clase `ProductsManager` (Actualización)
 
 La clase `ProductsManager` ahora verifica la existencia de productos con el mismo código antes de agregar un nuevo producto. Si existe un producto con el mismo código, se lanza un error; de lo contrario, se asigna un ID único al producto y se agrega a la lista.
 
 ### Clase `UsersManager`
 
 La clase `UsersManager` también verifica la existencia de usuarios con el mismo correo electrónico antes de agregar un nuevo usuario. Si existe un usuario con el mismo correo electrónico, se lanza un error; de lo contrario, se asigna un ID único al usuario y se agrega a la lista.
+
+## Sprint 3 - Clases 5 y 6

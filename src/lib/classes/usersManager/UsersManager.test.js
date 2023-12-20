@@ -1,6 +1,6 @@
 // UsersManager.test.js
 import { describe, expect, test, beforeEach } from '@jest/globals';
-import UsersManager from './UsersManager';
+import { UsersManager } from './UsersManager.js';
 
 describe('UsersManager', () => {
   let userManager;

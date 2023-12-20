@@ -1,7 +1,10 @@
+/* -------------------------------------------- */
+/*               //* ListManager.js             */
+/* -------------------------------------------- */
 import fs from 'fs';
 import crypto from 'crypto';
 
-export default class ListManager {
+export class ListManager {
   constructor(path) {
     this.path = path;
     this.items = [];
