@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "fName": "Nombre",
+    "lName": "Apellido",
+    "photo": "url/imagen",
+    "email": "nombre_apellido1@mail.com",
+    "id": "aa3fefa11331c5d49d535275"
+  },
+  {
+    "fName": "Nombre",
+    "lName": "Apellido",
+    "photo": "url/imagen",
+    "email": "nombre_apellido3@mail.com",
+    "id": "e8caaa88fd401b59aa3ad509"
+  },
+  {
+    "fName": "Name",
+    "lName": "Lname",
+    "photo": "url/imagen",
+    "email": "nombre_apellido53@mail.com",
+    "id": "98cfb76fd37bfe63f8bdce12"
+  }
+]

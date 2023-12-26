@@ -1,25 +1,55 @@
 /* -------------------------------------------- */
 /*                 //* cliLogs.js               */
 /* -------------------------------------------- */
-import clc from 'cli-color';
-import * as emoji from 'node-emoji';
+import clc from "cli-color";
+import * as emoji from "node-emoji";
 
-/* -------------- //# cliError.js ------------- */
-export function cliError (message){
-  console.log(clc.white.bgRed(`${emoji.get('boom')} ${message}`))
+/* -------------- //# common function --------- */
+function logWithDelay(logFunction, message, delay) {
+  return setTimeout(() => {
+    logFunction(message);
+  }, delay);
 }
 
-/* ------------- //# cliNotices.js ------------ */
-export function cliNotice (message) {
-  console.log(clc.blue.italic(`${emoji.get('loudspeaker')} ${message}`))
+/* -------------- //# cliError ---------------- */
+export function cliError(message, delay = 1000) {
+  return logWithDelay((msg) => {
+    console.log(
+      clc.white.bold.bgRed(
+        `${emoji.get("boom")} ${msg} ${emoji.get("boom")}`
+      )
+    );
+  }, message, delay);
 }
 
-/* ------------- //# cliSuccess.js ------------ */
-export function cliSuccess (message) {
-  console.log(clc.green.bold(`${emoji.get('tada')} ${message}`))
+/* ------------- //# cliNotice ---------------- */
+export function cliNotice(message, delay = 1000) {
+  return logWithDelay((msg) => {
+    console.log(clc.blue.italic(`${emoji.get("loudspeaker")} ${msg}`));
+  }, message, delay);
 }
 
-/* -------------- //# cliWarn.js -------------- */
-export function cliWarn (message) {
-  console.log(clc.yellow.blink(`${emoji.get('warning')}  ${message}`))
+/* ------------- //# cliSuccess --------------- */
+export function cliSuccess(message, delay = 1000) {
+  return logWithDelay((msg) => {
+    console.log(clc.green.bold(`${emoji.get("tada")} ${msg}`));
+  }, message, delay);
+}
+
+/* -------------- //# cliWarn ----------------- */
+export function cliWarn(message, delay = 1000) {
+  return logWithDelay((msg) => {
+    console.log(
+      clc.yellow.blink(
+        `${emoji.get("warning")}  ${msg} ${emoji.get("warning")} `
+      )
+    );
+  }, message, delay);
+}
+
+/* ----------------- //# cliMsg --------------- */
+export function cliMsg(message, delay = 1000) {
+  return logWithDelay((msg) => {
+    console.log(clc.magenta.bold(` ${msg}`));
+  }, message, delay);
 }

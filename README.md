@@ -10,6 +10,11 @@
   - [Clase `ProductsManager` (Actualización)](#clase-productsmanager-actualización)
   - [Clase `UsersManager`](#clase-usersmanager)
 - [Sprint 3 - Clases 5 y 6](#sprint-3---clases-5-y-6)
+  - [Levantamiento del Servidor y API](#levantamiento-del-servidor-y-api)
+    - [Servidor](#servidor)
+    - [Rutas de Productos y Usuarios](#rutas-de-productos-y-usuarios)
+    - [Manejo de Errores y Logs](#manejo-de-errores-y-logs)
+    - [Funciones Utilitarias](#funciones-utilitarias)
 
 ## Sprint 1 - Clases 1 y 2
 
@@ -64,3 +69,28 @@ La clase `ProductsManager` ahora verifica la existencia de productos con el mism
 La clase `UsersManager` también verifica la existencia de usuarios con el mismo correo electrónico antes de agregar un nuevo usuario. Si existe un usuario con el mismo correo electrónico, se lanza un error; de lo contrario, se asigna un ID único al usuario y se agrega a la lista.
 
 ## Sprint 3 - Clases 5 y 6
+
+### Levantamiento del Servidor y API
+
+#### Servidor
+
+- Se creó el archivo `server.js` para configurar y levantar el servidor.
+- Se utilizó Express, un framework de Node.js, para gestionar las rutas y HTTP.
+- Se configuró el servidor para escuchar en el puerto 8080 (o el puerto proporcionado por el entorno).
+- Se implementaron rutas para los endpoints principales ("/", "/api/products", "/api/users").
+
+#### Rutas de Productos y Usuarios
+
+- Se crearon archivos de rutas para productos (`products.router.js`) y usuarios (`users.router.js`) dentro de la carpeta `src/api/routes`.
+- Se definieron las rutas base para productos ("/api/products") y usuarios ("/api/users").
+- Se implementaron operaciones CRUD (Crear, Leer, Actualizar, Eliminar) para ambos, utilizando métodos HTTP como GET, POST y DELETE.
+
+#### Manejo de Errores y Logs
+
+- Se implementó un sistema de logs en la consola para mensajes de éxito, advertencias y errores.
+- Se añadieron mensajes de consola para registrar solicitudes recibidas y respuestas enviadas.
+
+#### Funciones Utilitarias
+
+- Se crearon funciones utilitarias, como el formateo de mensajes y la conversión de texto a formato de título (`toTitleCase`).
+- Estas funciones se utilizaron en los logs y en otras partes del código para mejorar la legibilidad.

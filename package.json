@@ -19,7 +19,7 @@
   },
   "scripts": {
     "test": "jest",
-    "start": "node $$",
+    "start": "node  $$",
     "dev": "nodemon $$"
   },
   "dependencies": {
