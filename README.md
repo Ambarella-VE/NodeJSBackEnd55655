@@ -5,10 +5,14 @@
   - [Clase `ListManager`](#clase-listmanager)
   - [Clase `UserManager`](#clase-usermanager)
   - [Clase `ProductsManager`](#clase-productsmanager)
+- [Sprint 2 - Clases 3 y 4](#sprint-2---clases-3-y-4)
+  - [Clase `ListManager` (Actualización)](#clase-listmanager-actualización)
+  - [Clase `ProductsManager`](#clase-productsmanager-1)
+  - [Clase `UsersManager`](#clase-usersmanager)
 
 ## Sprint 1 - Clases 1 y 2
 
-En este sprint, se implementa un sistema básico de gestión de productos y usuarios. A continuación se detallan las principales clases y funcionalidades desarrolladas:
+Se implementa un sistema básico de gestión de productos y usuarios. A continuación se detallan las principales clases y funcionalidades desarrolladas:
 
 ### Clase `ListManager`
 
@@ -37,3 +41,23 @@ La clase `ProductsManager` extiende la funcionalidad de la clase `ListManager` p
 - **`constructor`**: Crea una instancia de `ProductsManager` sin realizar ninguna acción adicional.
 
 - **`add`**: Agrega un nuevo producto al sistema verificando la existencia de productos con el mismo código. Si ya existe un producto con el mismo código, se lanza un error; de lo contrario, se asigna un ID único al producto.
+
+## Sprint 2 - Clases 3 y 4
+
+Se introducen mejoras en la gestión de archivos y se agregan funcionalidades específicas para manejar productos y usuarios.
+
+### Clase `ListManager` (Actualización)
+
+La clase `ListManager` ha sido actualizada para incorporar la gestión de archivos y mejorar la persistencia de los datos.
+
+- **`init`**: Verifica la existencia de un archivo de datos en el sistema. Si existe, carga los datos desde el archivo; de lo contrario, inicializa la lista vacía y guarda los datos en el archivo utilizando el módulo `fs`.
+
+- **`saveToFile`**: Guarda la lista de elementos en un archivo para persistencia de datos utilizando el módulo `fs`.
+
+### Clase `ProductsManager`
+
+La clase `ProductsManager` ahora verifica la existencia de productos con el mismo código antes de agregar un nuevo producto. Si existe un producto con el mismo código, se lanza un error; de lo contrario, se asigna un ID único al producto y se agrega a la lista.
+
+### Clase `UsersManager`
+
+La clase `UsersManager` también verifica la existencia de usuarios con el mismo correo electrónico antes de agregar un nuevo usuario. Si existe un usuario con el mismo correo electrónico, se lanza un error; de lo contrario, se asigna un ID único al usuario y se agrega a la lista.
