@@ -84,6 +84,12 @@ export default class ListManager {
     });
   }
 
+  update(id, item) {
+    return new Promise(async (resolve, reject) => {
+      
+    });
+  }
+
   async saveToFile() {
     try {
       await fs.promises.writeFile(

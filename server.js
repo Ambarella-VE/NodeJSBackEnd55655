@@ -19,7 +19,6 @@ server.use(morgan('dev'));
 
 /* ---------------- //# Routes ---------------- */
 server.get('/', (req, res) => {
-  cliMsg(`Get request received on ${req.originalUrl}`);
   res.json({
     statusCode: 200,
   });
