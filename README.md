@@ -15,6 +15,7 @@
     - [Rutas de Productos y Usuarios](#rutas-de-productos-y-usuarios)
     - [Manejo de Errores y Logs](#manejo-de-errores-y-logs)
     - [Funciones Utilitarias](#funciones-utilitarias)
+- [Sprint 4 - Clases 7 y 8](#sprint-4---clases-7-y-8)
 
 ## Sprint 1 - Clases 1 y 2
 
@@ -94,3 +95,5 @@ La clase `UsersManager` también verifica la existencia de usuarios con el mismo
 
 - Se crearon funciones utilitarias, como el formateo de mensajes y la conversión de texto a formato de título (`toTitleCase`).
 - Estas funciones se utilizaron en los logs y en otras partes del código para mejorar la legibilidad.
+
+## Sprint 4 - Clases 7 y 8

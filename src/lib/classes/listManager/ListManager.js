@@ -1,8 +1,8 @@
 /* -------------------------------------------- */
 /*               //* ListManager.js             */
 /* -------------------------------------------- */
-import fs from "fs";
-import crypto from "crypto";
+import fs from 'fs';
+import crypto from 'crypto';
 
 export default class ListManager {
   constructor(path) {
@@ -16,13 +16,13 @@ export default class ListManager {
       const fileExists = fs.existsSync(this.path);
       if (fileExists) {
         try {
-          const fileContent = await fs.promises.readFile(this.path, "utf-8");
+          const fileContent = await fs.promises.readFile(this.path, 'utf-8');
           this.items = JSON.parse(fileContent);
           resolve();
         } catch (err) {
           console.error(err);
           reject(
-            new Error(`Could not read ${this.path}. Error: ${err.message}`)
+            new Error(`Could not read ${this.path}. Error: ${err.message}`),
           );
         }
       } else {
@@ -36,7 +36,7 @@ export default class ListManager {
     return new Promise(async (resolve, reject) => {
       const newItem = {
         ...item,
-        id: crypto.randomBytes(12).toString("hex"),
+        id: crypto.randomBytes(12).toString('hex'),
       };
       this.items.push(newItem);
       try {
@@ -57,7 +57,7 @@ export default class ListManager {
   get(id) {
     return new Promise((resolve, reject) => {
       const itemFound = this.items.find((item) => item.id === id);
-  
+
       if (!itemFound) {
         reject(new Error(`Item with ID ${id} not found`));
       } else {
@@ -65,12 +65,11 @@ export default class ListManager {
       }
     });
   }
-  
 
   delete(id) {
     return new Promise(async (resolve, reject) => {
       const itemFoundIndex = this.items.findIndex((item) => item.id === id);
-  
+
       if (itemFoundIndex === -1) {
         reject(new Error(`Item with ID ${id} not found`));
       } else {
@@ -89,7 +88,7 @@ export default class ListManager {
     try {
       await fs.promises.writeFile(
         this.path,
-        JSON.stringify(this.items, null, 2)
+        JSON.stringify(this.items, null, 2),
       );
     } catch (error) {
       throw new Error(`Error writing to file ${this.path}. ${error.message}`);
