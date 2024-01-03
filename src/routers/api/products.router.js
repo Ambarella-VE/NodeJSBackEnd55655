@@ -9,7 +9,6 @@ const router = express.Router();
 
 // getAll
 router.get('/', (req, res) => {
-  cliMsg(`Get request received on ${req.originalUrl}`);
   productsManager
     .getAll()
     .then((products) => {
@@ -44,7 +43,6 @@ router.get('/', (req, res) => {
 
 // add
 router.post('/', (req, res) => {
-  cliMsg(`Post request received on ${req.originalUrl}`);
   const newProduct = req.body; // Assuming the new product data is in the request body
   productsManager
     .add(newProduct)
@@ -71,7 +69,6 @@ router.post('/', (req, res) => {
 // get by ID
 router.get('/:id', (req, res) => {
   const productId = req.params.id;
-  cliMsg(`Get request received on ${req.originalUrl}`);
   productsManager
     .get(productId)
     .then((product) => {
@@ -97,9 +94,6 @@ router.get('/:id', (req, res) => {
 // delete by ID
 router.delete('/:id', (req, res) => {
   const productId = req.params.id;
-  cliMsg(
-    `Delete request received on ${req.originalUrl} for product with ID ${productId}`,
-  );
   productsManager
     .delete(productId)
     .then(() => {

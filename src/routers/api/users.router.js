@@ -9,7 +9,6 @@ const router = express.Router();
 
 // getAll
 router.get('/', (req, res) => {
-  cliMsg(`Get request received on ${req.originalUrl}`);
   usersManager
     .getAll()
     .then((users) => {
@@ -44,7 +43,6 @@ router.get('/', (req, res) => {
 
 // add
 router.post('/', (req, res) => {
-  cliMsg(`Post request received on ${req.originalUrl}`);
   const newUser = req.body; // Assuming the new user data is in the request body
   usersManager
     .add(newUser)
@@ -71,7 +69,6 @@ router.post('/', (req, res) => {
 // get by ID
 router.get('/:id', (req, res) => {
   const userId = req.params.id;
-  cliMsg(`Get request received on ${req.originalUrl}`);
   usersManager
     .get(userId)
     .then((user) => {
@@ -97,9 +94,6 @@ router.get('/:id', (req, res) => {
 // delete by ID
 router.delete('/:id', (req, res) => {
   const userId = req.params.id;
-  cliMsg(
-    `Delete request received on ${req.originalUrl} for user with ID ${userId}`,
-  );
   usersManager
     .delete(userId)
     .then(() => {
