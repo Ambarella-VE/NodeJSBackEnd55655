@@ -57,7 +57,6 @@ export default class ListManager {
   get(id) {
     return new Promise((resolve, reject) => {
       const itemFound = this.items.find((item) => item.id === id);
-
       if (!itemFound) {
         reject(new Error(`Item with ID ${id} not found`));
       } else {
@@ -69,7 +68,6 @@ export default class ListManager {
   delete(id) {
     return new Promise(async (resolve, reject) => {
       const itemFoundIndex = this.items.findIndex((item) => item.id === id);
-
       if (itemFoundIndex === -1) {
         reject(new Error(`Item with ID ${id} not found`));
       } else {
@@ -84,11 +82,30 @@ export default class ListManager {
     });
   }
 
-  update(id, item) {
+  update(id, updatedItem) {
     return new Promise(async (resolve, reject) => {
-      
+      const itemIndex = this.items.findIndex((item) => item.id === id);
+      if (itemIndex === -1) {
+        reject(new Error(`Item with ID ${id} not found`));
+      } else {
+        // Provide a default value for updatedItem if it is undefined
+        const { id: updatedItemId, ...updatedItemWithoutId } = updatedItem || {};
+        // Merge the current item's properties (excluding 'id') with updatedItemWithoutId
+        this.items[itemIndex] = {
+          ...this.items[itemIndex],
+          ...updatedItemWithoutId,
+        };
+        try {
+          // Save the updated list to the file
+          await this.saveToFile();
+          resolve(this.items[itemIndex]);
+        } catch (err) {
+          reject(new Error(`Error updating item: ${err.message}`));
+        }
+      }
     });
   }
+  
 
   async saveToFile() {
     try {

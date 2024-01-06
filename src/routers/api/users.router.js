@@ -49,10 +49,8 @@ router.post('/', (req, res) => {
     .then((createdUser) => {
       cliSuccess(`User added with id ${createdUser.id}`);
       res.json({
-        success: true,
         statusCode: 201,
-        message: `User added with id ${createdUser.id}`,
-        data: createdUser,
+        response: createdUser
       });
       cliMsg('Response sent to requester');
     })
@@ -66,15 +64,37 @@ router.post('/', (req, res) => {
     });
 });
 
+router.put('/:uid', (req, res) => {
+  const userId = req.params.uid;
+  const newUserData = req.body;
+  usersManager
+    .update(userId, newUserData)
+    .then(updatedUser => {
+      cliSuccess(`User with id ${updatedUser.id} updated`);
+      res.json({
+        statusCode: 200,
+        response: updatedUser
+      });
+      cliMsg('Response sent to requester');
+    })
+    .catch((err) => {
+      cliError(err.message);
+      res.json({
+        statusCode: 400,
+        message: err.message
+      });
+      cliMsg('Response sent to requester');
+    });
+});
+
 // get by ID
-router.get('/:id', (req, res) => {
-  const userId = req.params.id;
+router.get('/:uid', (req, res) => {
+  const userId = req.params.uid;
   usersManager
     .get(userId)
     .then((user) => {
       cliSuccess(`User with ID ${userId} found`);
       res.json({
-        success: true,
         statusCode: 200,
         message: `User with ID ${userId} found`,
         data: user,
@@ -85,23 +105,22 @@ router.get('/:id', (req, res) => {
       cliError(err.message);
       res.json({
         statusCode: 404,
-        message: err.message,
+        response: err.message,
       });
       cliMsg('Response sent to requester');
     });
 });
 
 // delete by ID
-router.delete('/:id', (req, res) => {
-  const userId = req.params.id;
+router.delete('/:uid', (req, res) => {
+  const userId = req.params.uid;
   usersManager
     .delete(userId)
     .then(() => {
       cliSuccess(`User with ID ${userId} deleted`);
       res.json({
-        success: true,
         statusCode: 204,
-        message: `User with ID ${userId} deleted`,
+        response: `User with ID ${userId} deleted`,
       });
       cliMsg('Response sent to requester');
     })
@@ -109,7 +128,7 @@ router.delete('/:id', (req, res) => {
       cliError(err.message);
       res.json({
         statusCode: 404,
-        message: err.message,
+        response: err.message,
       });
       cliMsg('Response sent to requester');
     });

@@ -15,18 +15,15 @@ router.get('/', (req, res) => {
       if (products.length > 0) {
         cliSuccess(`${products.length} Products found`);
         res.json({
-          success: true,
           statusCode: 200,
-          message: `${products.length} Products found`,
-          data: products,
+          response: products
         });
         cliMsg('Products sent to requester');
       } else {
         cliError('No products found');
         res.json({
-          success: false,
           statusCode: 404,
-          message: 'No products found',
+          response: 'No products found'
         });
         cliMsg('Response sent to requester');
       }
@@ -35,7 +32,7 @@ router.get('/', (req, res) => {
       cliError(err.message);
       res.json({
         statusCode: 500,
-        message: err.message,
+        response: err.message,
       });
       cliMsg('Response sent to requester');
     });
@@ -49,10 +46,8 @@ router.post('/', (req, res) => {
     .then((createdProduct) => {
       cliSuccess(`Product added with id ${createdProduct.id}`);
       res.json({
-        success: true,
         statusCode: 201,
-        message: `Product added with id ${createdProduct.id}`,
-        data: createdProduct,
+        response: createdProduct
       });
       cliMsg('Response sent to requester');
     })
@@ -60,24 +55,22 @@ router.post('/', (req, res) => {
       cliError(err.message);
       res.json({
         statusCode: 400,
-        message: err.message,
+        response: err.message
       });
       cliMsg('Response sent to requester');
     });
 });
 
 // get by ID
-router.get('/:id', (req, res) => {
-  const productId = req.params.id;
+router.get('/:pid', (req, res) => {
+  const productId = req.params.pid;
   productsManager
     .get(productId)
     .then((product) => {
       cliSuccess(`Product with ID ${productId} found`);
       res.json({
-        success: true,
         statusCode: 200,
-        message: `Product with ID ${productId} found`,
-        data: product,
+        response: product,
       });
       cliMsg('Response sent to requester');
     })
@@ -85,23 +78,22 @@ router.get('/:id', (req, res) => {
       cliError(err.message);
       res.json({
         statusCode: 404,
-        message: err.message,
+        response: err.message,
       });
       cliMsg('Response sent to requester');
     });
 });
 
 // delete by ID
-router.delete('/:id', (req, res) => {
-  const productId = req.params.id;
+router.delete('/:pid', (req, res) => {
+  const productId = req.params.pid;
   productsManager
     .delete(productId)
     .then(() => {
       cliSuccess(`Product with ID ${productId} deleted`);
       res.json({
-        success: true,
         statusCode: 204,
-        message: `Product with ID ${productId} deleted`,
+        response: `Product with ID ${productId} deleted`
       });
       cliMsg('Response sent to requester');
     })
@@ -109,7 +101,7 @@ router.delete('/:id', (req, res) => {
       cliError(err.message);
       res.json({
         statusCode: 404,
-        message: err.message,
+        response: err.message
       });
       cliMsg('Response sent to requester');
     });

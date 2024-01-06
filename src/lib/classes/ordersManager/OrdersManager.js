@@ -8,5 +8,9 @@ export default class OrdersManager extends ListManager {
     super(path);
   }
 
-  
+  getByUser(uid) {
+    return new Promise((resolve, reject) => {
+      
+    });
+  }
 }
