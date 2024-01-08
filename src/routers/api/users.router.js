@@ -20,19 +20,21 @@ router.get('/', (req, res) => {
         });
         cliMsg('Users sent to requester');
       } else {
-        cliError('No users found');
+        const msg = 'No users found' 
+        cliError(msg);
         res.json({
           statusCode: 404,
-          response: 'No users found',
+          response: msg
         });
         cliMsg('Response sent to requester');
       }
     })
     .catch((err) => {
-      cliError(err.message);
+      const msg = err.message
+      cliError(msg);
       res.json({
         statusCode: 500,
-        response: err.message,
+        response: msg
       });
       cliMsg('Response sent to requester');
     });
@@ -52,10 +54,11 @@ router.post('/', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      cliError(err.message);
+      const msg = err.message
+      cliError(msg);
       res.json({
         statusCode: 400,
-        response: err.message,
+        response: msg
       });
       cliMsg('Response sent to requester');
     });
@@ -76,10 +79,11 @@ router.put('/:uid', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      cliError(err.message);
+      const msg = err.message
+      cliError(msg);
       res.json({
         statusCode: 400,
-        response: err.message
+        response: msg
       });
       cliMsg('Response sent to requester');
     });
@@ -99,10 +103,11 @@ router.get('/:uid', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      cliError(err.message);
+      const msg = err.message
+      cliError(msg);
       res.json({
         statusCode: 404,
-        response: err.message,
+        response: msg,
       });
       cliMsg('Response sent to requester');
     });
@@ -122,10 +127,11 @@ router.delete('/:uid', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      cliError(err.message);
+      const msg = err.message
+      cliError(msg);
       res.json({
         statusCode: 404,
-        response: err.message,
+        response: msg
       });
       cliMsg('Response sent to requester');
     });

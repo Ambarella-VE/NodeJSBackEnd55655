@@ -20,19 +20,21 @@ router.get('/',(req,res)=>{
           response: orders
         });
       } else {
-        cliError('No orders found');
+        const msg = 'No orders found' 
+        cliError(msg);
         res.json({
           statusCode: 404,
-          response: 'No users found'
+          response: msg
         });
         cliMsg('Response sent to requester')
       };
     })
     .catch((err) => {
-      cliError(err.message);
+      const msg = err.message
+      cliError(msg);
       res.json({
         statusCode: 500,
-        response: err.message
+        response: msg
       });
       cliMsg('Response sent to requester');
     });
@@ -52,10 +54,11 @@ router.post('/', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      cliError(err.message);
+      const msg = err.message
+      cliError(msg);
       res.json({
         statusCode: 400,
-        response: err.message,
+        response: msg
       });
       cliMsg('Response sent to requester');
     });
@@ -76,10 +79,11 @@ router.put('/:oid', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      cliError(err.message);
+      const msg = err.message
+      cliError(msg);
       res.json({
         statusCode: 400,
-        response: err.message
+        response: msg
       });
       cliMsg('Response sent to requester');
     });
@@ -99,10 +103,11 @@ router.get('/order/:oid', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      cliError(err.message);
+      const msg = err.message
+      cliError(msg);
       res.json({
         statusCode: 404,
-        response: err.message,
+        response: msg
       });
       cliMsg('Response sent to requester');
     });
@@ -122,14 +127,23 @@ router.get('/:uid', (req, res) => {
         });
         cliMsg('Response sent to requester')
       } else {
-        cliError(`No orders found for user ${userId}`)
+        const msg = `No orders found for user ${userId}`
+        cliError(msg)
         res.json({
           statusCode: 404,
-          response: `No orders found for user ${userId}`
+          response: msg
         })
       }
     })
-    .catch
+    .catch((err) =>{
+      const msg = err.message
+      cliError(msg)
+      res.json({
+        statusCode: 404,
+        response: msg
+      });
+      cliMsg('Response sent to requester');
+    })
 });
 
 export default router;

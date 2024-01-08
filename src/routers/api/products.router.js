@@ -20,19 +20,21 @@ router.get('/', (req, res) => {
         });
         cliMsg('Products sent to requester');
       } else {
-        cliError('No products found');
+        const msg = 'No products found' 
+        cliError(msg);
         res.json({
           statusCode: 404,
-          response: 'No products found'
+          response: msg
         });
         cliMsg('Response sent to requester');
       }
     })
     .catch((err) => {
-      cliError(err.message);
+      const msg = err.message
+      cliError(msg);
       res.json({
         statusCode: 500,
-        response: err.message,
+        response: msg,
       });
       cliMsg('Response sent to requester');
     });
@@ -52,10 +54,11 @@ router.post('/', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      cliError(err.message);
+      const msg = err.message
+      cliError(msg);
       res.json({
         statusCode: 400,
-        response: err.message
+        response: msg
       });
       cliMsg('Response sent to requester');
     });
@@ -76,10 +79,11 @@ router.put('/:pid', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      cliError(err.message);
+      const msg = err.message
+      cliError(msg);
       res.json({
         statusCode: 400,
-        response: err.message
+        response: msg
       });
       cliMsg('Response sent to requester');
     });
@@ -99,10 +103,11 @@ router.get('/:pid', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      cliError(err.message);
+      const msg = err.message
+      cliError(msg);
       res.json({
         statusCode: 404,
-        response: err.message,
+        response: msg,
       });
       cliMsg('Response sent to requester');
     });
@@ -114,18 +119,20 @@ router.delete('/:pid', (req, res) => {
   productsManager
     .delete(productId)
     .then(() => {
-      cliSuccess(`Product with ID ${productId} deleted`);
+      const msg = `Product with ID ${productId} deleted` 
+      cliSuccess(msg);
       res.json({
         statusCode: 204,
-        response: `Product with ID ${productId} deleted`
+        response: msg
       });
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      cliError(err.message);
+      const msg = err.message
+      cliError(msg);
       res.json({
         statusCode: 404,
-        response: err.message
+        response: msg
       });
       cliMsg('Response sent to requester');
     });
