@@ -2,7 +2,7 @@
 /*             //* users.router.js              */
 /* -------------------------------------------- */
 import express from 'express';
-import usersManager from '../../data/memory/users.js'; // Import your user manager module
+import usersManager from '../../data/memory/users.js';
 import { cliError, cliMsg, cliSuccess } from '../../lib/functions/cliLogs.js';
 
 const router = express.Router();
