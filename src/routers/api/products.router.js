@@ -7,7 +7,7 @@ import { cliError, cliMsg, cliSuccess } from '../../lib/functions/cliLogs.js';
 
 const router = express.Router();
 
-// getAll
+//? getAll
 router.get('/', (req, res) => {
   productsManager
     .getAll()
@@ -38,7 +38,7 @@ router.get('/', (req, res) => {
     });
 });
 
-// add
+//? add
 router.post('/', (req, res) => {
   const newProduct = req.body; // Assuming the new product data is in the request body
   productsManager
@@ -61,7 +61,31 @@ router.post('/', (req, res) => {
     });
 });
 
-// get by ID
+//? update
+router.put('/:pid', (req, res) => {
+  const userId = req.params.pid;
+  const newProductData = req.body;
+  usersManager
+    .update(userId, newProductData)
+    .then(updatedProduct => {
+      cliSuccess(`User with id ${updatedProduct.id} updated`);
+      res.json({
+        statusCode: 200,
+        response: updatedProduct
+      });
+      cliMsg('Response sent to requester');
+    })
+    .catch((err) => {
+      cliError(err.message);
+      res.json({
+        statusCode: 400,
+        response: err.message
+      });
+      cliMsg('Response sent to requester');
+    });
+});
+
+//? get by ID
 router.get('/:pid', (req, res) => {
   const productId = req.params.pid;
   productsManager
@@ -84,7 +108,7 @@ router.get('/:pid', (req, res) => {
     });
 });
 
-// delete by ID
+//? delete by ID
 router.delete('/:pid', (req, res) => {
   const productId = req.params.pid;
   productsManager

@@ -10,7 +10,12 @@ export default class OrdersManager extends ListManager {
 
   getByUser(uid) {
     return new Promise((resolve, reject) => {
-      
+      const itemsFound = this.items.filter(item => item.uid === uid);
+      if (itemsFound.length > 0) {
+        resolve(itemsFound)
+      } else {
+        reject(new Error(`Items not found for user ${uid}`));
+      }
     });
   }
 }

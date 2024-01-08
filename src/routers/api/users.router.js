@@ -7,7 +7,7 @@ import { cliError, cliMsg, cliSuccess } from '../../lib/functions/cliLogs.js';
 
 const router = express.Router();
 
-// getAll
+//? getAll
 router.get('/', (req, res) => {
   usersManager
     .getAll()
@@ -15,18 +15,15 @@ router.get('/', (req, res) => {
       if (users.length > 0) {
         cliSuccess(`${users.length} Users found`);
         res.json({
-          success: true,
           statusCode: 200,
-          message: `${users.length} Users found`,
-          data: users,
+          response: users
         });
         cliMsg('Users sent to requester');
       } else {
         cliError('No users found');
         res.json({
-          success: false,
           statusCode: 404,
-          message: 'No users found',
+          response: 'No users found',
         });
         cliMsg('Response sent to requester');
       }
@@ -35,13 +32,13 @@ router.get('/', (req, res) => {
       cliError(err.message);
       res.json({
         statusCode: 500,
-        message: err.message,
+        response: err.message,
       });
       cliMsg('Response sent to requester');
     });
 });
 
-// add
+//? add
 router.post('/', (req, res) => {
   const newUser = req.body; // Assuming the new user data is in the request body
   usersManager
@@ -58,12 +55,13 @@ router.post('/', (req, res) => {
       cliError(err.message);
       res.json({
         statusCode: 400,
-        message: err.message,
+        response: err.message,
       });
       cliMsg('Response sent to requester');
     });
 });
 
+//? update
 router.put('/:uid', (req, res) => {
   const userId = req.params.uid;
   const newUserData = req.body;
@@ -81,13 +79,13 @@ router.put('/:uid', (req, res) => {
       cliError(err.message);
       res.json({
         statusCode: 400,
-        message: err.message
+        response: err.message
       });
       cliMsg('Response sent to requester');
     });
 });
 
-// get by ID
+//? get by ID
 router.get('/:uid', (req, res) => {
   const userId = req.params.uid;
   usersManager
@@ -96,8 +94,7 @@ router.get('/:uid', (req, res) => {
       cliSuccess(`User with ID ${userId} found`);
       res.json({
         statusCode: 200,
-        message: `User with ID ${userId} found`,
-        data: user,
+        response: user
       });
       cliMsg('Response sent to requester');
     })
@@ -111,7 +108,7 @@ router.get('/:uid', (req, res) => {
     });
 });
 
-// delete by ID
+//? delete by ID
 router.delete('/:uid', (req, res) => {
   const userId = req.params.uid;
   usersManager
