@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
     .getAll()
     .then((users) => {
       if (users.length > 0) {
-        cliSuccess(`${users.length} Users found`);
+        cliSuccess(`${users.length} users found`);
         res.json({
           statusCode: 200,
           response: users
