@@ -3,6 +3,7 @@
 /* -------------------------------------------- */
 import fs from 'fs';
 import crypto from 'crypto';
+import { cliError } from '../../functions/cliLogs.js';
 
 export default class ListManager {
   constructor(path) {
@@ -41,12 +42,59 @@ export default class ListManager {
       this.items.push(newItem);
       try {
         await this.saveToFile();
-        resolve(newItem);
+        resolve({
+          statusCode: 201,
+          response: newItem
+        });
       } catch (err) {
         reject(new Error(`Error adding item: ${err.message}`));
       }
     });
   }
+
+  addBulk(items) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const addedItems = []
+        for (const item of items) {
+          try {
+            const addedItem = await this.add(item);
+            addedItems.push(addedItem);
+          } catch (err) {
+            // Log the error, but continue with the next item
+            cliError(`Error adding item: ${err.message}`);
+          }
+        }
+        if (addedItems.length > 0) {
+          const statusCodes = [...new Set(await addedItems.map(item => item.statusCode))];
+          if (statusCodes.length > 1 ) {
+            resolve({
+              statusCode: 207,
+              response: addedItems
+            })
+          } else if (statusCodes.length > 0) {
+            resolve({
+              statusCode: statusCodes[0],
+              response: addedItems
+            })
+          } else {
+            resolve({
+              statusCode: 201,
+              response: addedItems
+            })  
+          }
+        } else {
+          resolve({
+            statusCode: 400,
+            response: addedItems
+          })
+        }
+      } catch (err) {
+        reject(new Error(`Error adding items: ${err.message}`));
+      }
+    });
+  } 
+
 
   getAll() {
     return new Promise((resolve, reject) => {

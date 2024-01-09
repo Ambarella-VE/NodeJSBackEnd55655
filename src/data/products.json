@@ -1,218 +1,380 @@
 [
   {
-    "title": "Test Product2",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xyz89898",
-    "stock": 20,
-    "id": "cee07e30dcddb3be261d8f37"
+    "title": "Globos de Fiesta",
+    "description": "Paquete de 50 globos de colores variados para alegrar tu fiesta.",
+    "price": 12.99,
+    "thumbnail": "https://example.com/globos-thumbnail.jpg",
+    "code": "GS1001",
+    "stock": 100,
+    "id": "9a91eb6075dd32dd798b9ffa"
   },
   {
-    "title": "Test Product2",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xyz8898",
-    "stock": 20,
-    "id": "e652ae5a53307f103e81ea20"
+    "title": "Sombreros de Cumpleaños",
+    "description": "Set de 10 sombreros con brillantes y colores vibrantes para celebrar tu cumpleaños.",
+    "price": 24.99,
+    "thumbnail": "https://example.com/sombreros-thumbnail.jpg",
+    "code": "SC2002",
+    "stock": 50,
+    "id": "3853ea9c41da7d7568620d1f"
   },
   {
-    "title": "Test Product2",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xyz898",
-    "stock": 20,
-    "id": "2a66af008246d1040aa8336f"
+    "title": "Vasos de Fiesta",
+    "description": "Juego de 25 vasos desechables con diseños festivos para bebidas refrescantes.",
+    "price": 9.99,
+    "thumbnail": "https://example.com/vasos-thumbnail.jpg",
+    "code": "VF3003",
+    "stock": 75,
+    "id": "e32a54d97e14eb64e5df568c"
   },
   {
-    "title": "Test Product2",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xyz88",
-    "stock": 20,
-    "id": "5d0b48c014816ffb15f6e745"
+    "title": "Piñata de Estrella",
+    "description": "Colorida piñata en forma de estrella para alegrar cualquier celebración.",
+    "price": 18.99,
+    "thumbnail": "https://example.com/pinata-thumbnail.jpg",
+    "code": "PE4019",
+    "stock": 30,
+    "id": "fcea51772e24b325ed8c8e32"
   },
   {
-    "title": "Test Product2",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xyz88aoe",
-    "stock": 20,
-    "id": "f2331866515eedd89105f85e"
+    "title": "Guirnaldas de Luces",
+    "description": "Cadena de luces LED para decorar tu fiesta con un ambiente cálido y festivo.",
+    "price": 34.99,
+    "thumbnail": "https://example.com/lights-thumbnail.jpg",
+    "code": "GL5025",
+    "stock": 40,
+    "id": "bddd8c6c86a5c2b63e46d4f0"
   },
   {
-    "title": "Test Product2",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xyz88ae",
-    "stock": 20,
-    "id": "51dfd73c106463519ef6e3f0"
+    "title": "Platos Decorativos",
+    "description": "Set de 20 platos decorativos con patrones alegres para servir tus deliciosos bocadillos.",
+    "price": 16.99,
+    "thumbnail": "https://example.com/plates-thumbnail.jpg",
+    "code": "PD6036",
+    "stock": 60,
+    "id": "e7c599364f378f598e75028f"
   },
   {
-    "title": "Test Product2",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xyz88e",
-    "stock": 20,
-    "id": "27f31bca4454d4d8a017b59f"
+    "title": "Banderines de Fiesta",
+    "description": "Cuerda de banderines multicolores para agregar un toque festivo a cualquier espacio.",
+    "price": 8.99,
+    "thumbnail": "https://example.com/banners-thumbnail.jpg",
+    "code": "BF7047",
+    "stock": 80,
+    "id": "f1180831aedf071c765aa809"
   },
   {
-    "title": "Test Product2",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xyz88ec",
-    "stock": 20,
-    "id": "88d862f88286d7606bba826e"
+    "title": "Máscaras de Carnaval",
+    "description": "Conjunto de 15 máscaras de carnaval con diseños divertidos para celebrar con estilo.",
+    "price": 28.99,
+    "thumbnail": "https://example.com/masks-thumbnail.jpg",
+    "code": "MC8058",
+    "stock": 25,
+    "id": "028be4b3397a50440c6f2829"
   },
   {
-    "title": "Test Product2",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xz88ec",
-    "stock": 20,
-    "id": "5cf1af52bc47986ec744371e"
+    "title": "Confeti Brillante",
+    "description": "Bolsa de confeti brillante para esparcir alegría durante la celebración.",
+    "price": 5.99,
+    "thumbnail": "https://example.com/confetti-thumbnail.jpg",
+    "code": "CB9069",
+    "stock": 120,
+    "id": "472d75e89831548f6f8e8950"
   },
   {
-    "title": "Test Product2",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xz88nec",
-    "stock": 20,
-    "id": "af898e846e92908bc12267ad"
+    "title": "Servilletas Elegantes",
+    "description": "Pack de 30 servilletas elegantes con detalles dorados para una mesa sofisticada.",
+    "price": 12.99,
+    "thumbnail": "https://example.com/napkins-thumbnail.jpg",
+    "code": "SE10070",
+    "stock": 50,
+    "id": "15425cb27f2b76c476dd4f48"
   },
   {
-    "title": "Test Product2",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xz8o8nec",
-    "stock": 20,
-    "id": "ee8ff1ee02827c2d0e8f7a4d"
+    "title": "Hats de Fiesta",
+    "description": "Conjunto de 5 sombreros extravagantes para destacar en la fiesta.",
+    "price": 19.99,
+    "thumbnail": "https://example.com/party-hats-thumbnail.jpg",
+    "code": "HF11011",
+    "stock": 15,
+    "id": "02116cddaba736a969a8e724"
   },
   {
-    "title": "Test Product32",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xz8o8nqec",
-    "stock": 20,
-    "id": "2873da562d4d2ec182080790"
+    "title": "Centro de Mesa Brillante",
+    "description": "Centro de mesa brillante con detalles dorados para agregar elegancia a la celebración.",
+    "price": 26.99,
+    "thumbnail": "https://example.com/centerpiece-thumbnail.jpg",
+    "code": "CM12012",
+    "stock": 35,
+    "id": "d973ddc41cfa34030e6a745a"
   },
   {
-    "title": "Test Product32",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xzo856",
-    "stock": 20,
-    "id": "7d299896dcf9bb4ba01c4878"
+    "title": "Globos Gigantes",
+    "description": "Globos gigantes con mensajes festivos para destacar en cualquier ocasión especial.",
+    "price": 45.99,
+    "thumbnail": "https://example.com/giant-balloons-thumbnail.jpg",
+    "code": "GG13013",
+    "stock": 10,
+    "id": "24aec8dfcb6ef7fc6c1b90ed"
   },
   {
-    "title": "Test Product32",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xzo8o356",
+    "title": "Hielo Seco para Efectos Especiales",
+    "description": "Bloque de hielo seco para crear efectos especiales y sorprender a tus invitados.",
+    "price": 39.99,
+    "thumbnail": "https://example.com/dry-ice-thumbnail.jpg",
+    "code": "HS14014",
     "stock": 20,
-    "id": "43d3a8eff18bcf6912780410"
+    "id": "84a02504bd88324d30a96b9c"
   },
   {
-    "title": "Test Product32",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xzoo356",
-    "stock": 20,
-    "id": "4e2d83246dc9a2e4752c41eb"
+    "title": "Cortinas Brillantes",
+    "description": "Cortinas brillantes para añadir un toque glamoroso a la entrada de la fiesta.",
+    "price": 32.99,
+    "thumbnail": "https://example.com/glitter-curtains-thumbnail.jpg",
+    "code": "CB15015",
+    "stock": 30,
+    "id": "8afd947ad3f02a6df6996222"
   },
   {
-    "title": "Test Product32",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xzoo3i56",
-    "stock": 20,
-    "id": "b0ff42c34393c81f83ad172b"
+    "title": "Juegos de Mesa Divertidos",
+    "description": "Colección de juegos de mesa para mantener a los invitados entretenidos durante la fiesta.",
+    "price": 22.99,
+    "thumbnail": "https://example.com/board-games-thumbnail.jpg",
+    "code": "JM16016",
+    "stock": 45,
+    "id": "6e3ec49509e7bd5ae1655dd9"
   },
   {
-    "title": "Test Product32",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xzoo3oi56",
-    "stock": 20,
-    "id": "c35a49d278ab4bf3da25f640"
+    "title": "Toldo Decorativo para Exteriores",
+    "description": "Toldo decorativo resistente para crear un espacio al aire libre con estilo.",
+    "price": 74.99,
+    "thumbnail": "https://example.com/outdoor-canopy-thumbnail.jpg",
+    "code": "TD17017",
+    "stock": 5,
+    "id": "e3a9cb3ddc3bf0c1fa7d8bf0"
   },
   {
-    "title": "Test Product32",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xzoo3oi356",
-    "stock": 20,
-    "id": "771ae3ab07e7a514cb97f434"
+    "title": "Póster Fotográfico Personalizado",
+    "description": "Póster fotográfico personalizado con los mejores momentos de la celebración.",
+    "price": 29.99,
+    "thumbnail": "https://example.com/photo-poster-thumbnail.jpg",
+    "code": "PF18018",
+    "stock": 18,
+    "id": "bd583f624612c566bc513d3d"
   },
   {
-    "title": "Test Product32",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xzoo3o56",
-    "stock": 20,
-    "id": "329a29789d612eb938633dc3"
+    "title": "Globo Aerostático de Papel",
+    "description": "Globo aerostático de papel para colgar y crear un ambiente mágico.",
+    "price": 16.99,
+    "thumbnail": "https://example.com/paper-hot-air-balloon-thumbnail.jpg",
+    "code": "GA19019",
+    "stock": 25,
+    "id": "a78678185d69b01d25c08dee"
   },
   {
-    "title": "Test Product32",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xzooo3o56",
-    "stock": 20,
-    "id": "b3eae14b682cc1dbac3bc70a"
+    "title": "Kit de Pintura Facial",
+    "description": "Kit de pintura facial con colores vibrantes para los más pequeños en la fiesta.",
+    "price": 10.99,
+    "thumbnail": "https://example.com/face-painting-kit-thumbnail.jpg",
+    "code": "KP20020",
+    "stock": 50,
+    "id": "7b954c909bff67b1cf064433"
   },
   {
-    "title": "Test Product32",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xzoo73o56",
+    "title": "Sombreros de Fiesta Brillantes",
+    "description": "Conjunto de 8 sombreros de fiesta brillantes con diseños de purpurina para un look festivo.",
+    "price": 19.99,
+    "thumbnail": "https://example.com/sombreros-brillantes-thumbnail.jpg",
+    "code": "SB2022",
     "stock": 20,
-    "id": "b980233c78b823bc26a15835"
+    "id": "fd190504e132bf57fe27282c"
   },
   {
-    "title": "Test Product32",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "xzoo73o506",
-    "stock": 20,
-    "id": "1261132c49aa6ea814e0f738"
+    "title": "Cañones de Confeti Coloridos",
+    "description": "Paquete de 5 cañones de confeti coloridos para un momento de celebración espectacular.",
+    "price": 29.99,
+    "thumbnail": "https://example.com/canones-confeti-coloridos-thumbnail.jpg",
+    "code": "CC3033",
+    "stock": 15,
+    "id": "8ae5671b58548299f9cb49b9"
   },
   {
-    "title": "Test Product32",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "aozoo73o506",
-    "stock": 20,
-    "id": "b219c51e5cdb38da1bef6617"
+    "title": "Globos de Fiesta",
+    "description": "Paquete de 20 globos de colores variados para decorar tu fiesta.",
+    "price": 9.99,
+    "thumbnail": "https://example.com/globos-thumbnail.jpg",
+    "code": "GF2022",
+    "stock": 25,
+    "id": "a8cd2e0a7b5bf82aaba228ea"
   },
   {
-    "title": "Test Product32",
-    "description": "This is a test product",
-    "price": 200,
-    "thumbnail": "No image",
-    "code": "aozoo3o506",
+    "title": "Piñata de Cumpleaños",
+    "description": "Divertida piñata con diseño de cumpleaños para alegrar la fiesta. Incluye palo y venda para los ojos.",
+    "price": 14.99,
+    "thumbnail": "https://example.com/pinata-thumbnail.jpg",
+    "code": "PC2022",
+    "stock": 30,
+    "id": "a386ad79ff86f268d9974055"
+  },
+  {
+    "title": "Globos de Fiesta",
+    "description": "Paquete de 100 globos de colores variados para decorar tu fiesta.",
+    "price": 25.99,
+    "thumbnail": "https://example.com/globos-thumbnail.jpg",
+    "code": "GA2023",
+    "stock": 25,
+    "id": "6c67f7c8549dc18d4c64054b"
+  },
+  {
+    "title": "Decoración de Fiesta de Neón",
+    "description": "Paquete de decoración para fiesta con colores vibrantes y temática de neón. Incluye globos, pancartas y más.",
+    "price": 24.99,
+    "thumbnail": "https://example.com/decoracion-neon-thumbnail.jpg",
+    "code": "DN2022",
+    "stock": 18,
+    "id": "d49140e2417253d03360fdd5"
+  },
+  {
+    "title": "Velas de Cumpleaños Brillantes",
+    "description": "Conjunto de 12 velas brillantes con soportes decorativos para dar un toque especial a tu pastel de cumpleaños.",
+    "price": 8.49,
+    "thumbnail": "https://example.com/velas-cumpleanos-thumbnail.jpg",
+    "code": "VC2022",
+    "stock": 15,
+    "id": "8565a1bed546c1d020963451"
+  },
+  {
+    "title": "Servilletas de Fiesta con Diseños",
+    "description": "Paquete de 50 servilletas con divertidos diseños para añadir un toque festivo a tu celebración.",
+    "price": 12.99,
+    "thumbnail": "https://example.com/servilletas-fiesta-thumbnail.jpg",
+    "code": "SF2022",
+    "stock": 22,
+    "id": "4f0d5db764311bca2a2c7249"
+  },
+  {
+    "title": "Gorros de Fiesta con Luces LED",
+    "description": "Conjunto de 10 gorros de fiesta con luces LED intermitentes para una celebración aún más emocionante.",
+    "price": 29.99,
+    "thumbnail": "https://example.com/gorros-led-thumbnail.jpg",
+    "code": "GL2022",
+    "stock": 12,
+    "id": "d318917698a72d2d76bf8440"
+  },
+  {
+    "title": "Platos de Fiesta Elegantes",
+    "description": "Juego de 20 platos de fiesta con elegantes diseños y detalles dorados para una presentación sofisticada.",
+    "price": 18.99,
+    "thumbnail": "https://example.com/platos-elegantes-thumbnail.jpg",
+    "code": "PE2022",
+    "stock": 25,
+    "id": "65ed9fe0f0e4644b0a47fa40"
+  },
+  {
+    "title": "Piñata de Estrella Brillante",
+    "description": "Divertida piñata en forma de estrella con brillos y sorpresas en su interior. Incluye palo y venda.",
+    "price": 16.49,
+    "thumbnail": "https://example.com/pinata-estrella-thumbnail.jpg",
+    "code": "PEB2022",
     "stock": 20,
-    "id": "86cfef26aa51591a9360628f"
+    "id": "ff588146d0eef048e663e488"
+  },
+  {
+    "title": "Cubiertos de Fiesta Plateados",
+    "description": "Juego de cubiertos desechables plateados para una mesa elegante en tu celebración. Incluye tenedores, cucharas y cuchillos.",
+    "price": 14.99,
+    "thumbnail": "https://example.com/cubiertos-plateados-thumbnail.jpg",
+    "code": "CP2022",
+    "stock": 30,
+    "id": "2d583c74d5b60ed1af88c3be"
+  },
+  {
+    "title": "Guirnalda de Luces LED para Fiesta",
+    "description": "Guirnalda de luces LED con formas festivas para iluminar y decorar tu espacio de celebración. Conexión USB para fácil uso.",
+    "price": 22.99,
+    "thumbnail": "https://example.com/guirnalda-luces-led-thumbnail.jpg",
+    "code": "GLL2022",
+    "stock": 15,
+    "id": "44ec0f67dabd1336822527bb"
+  },
+  {
+    "title": "Globos Gigantes de Números",
+    "description": "Globos gigantes de números para destacar la edad o fecha especial en tu celebración. Disponibles en varios colores.",
+    "price": 11.99,
+    "thumbnail": "https://example.com/globos-numeros-thumbnail.jpg",
+    "code": "GN2022",
+    "stock": 18,
+    "id": "fe89dc3d9be999e6df9531bc"
+  },
+  {
+    "title": "Kit de Fotomatón para Fiesta",
+    "description": "Kit completo de accesorios para un fotomatón divertido en tu fiesta. Incluye gafas, bigotes, y carteles divertidos.",
+    "price": 16.99,
+    "thumbnail": "https://example.com/fotomaton-fiesta-thumbnail.jpg",
+    "code": "KF2022",
+    "stock": 22,
+    "id": "8718df014e383d0c96a4e713"
+  },
+  {
+    "title": "Banderines Decorativos",
+    "description": "Conjunto de banderines decorativos para agregar un toque festivo y colorido a tu espacio de celebración.",
+    "price": 9.49,
+    "thumbnail": "https://example.com/banderines-decorativos-thumbnail.jpg",
+    "code": "BD2022",
+    "stock": 25,
+    "id": "f12a2510cbda54ce98cd8c5b"
+  },
+  {
+    "title": "Velas Decorativas de Fiesta",
+    "description": "Conjunto de 12 velas decorativas con colores vibrantes para iluminar y decorar tu celebración.",
+    "price": 8.99,
+    "thumbnail": "https://example.com/velas-decorativas-thumbnail.jpg",
+    "code": "VD2022",
+    "stock": 18,
+    "id": "03e043bf23232252d4f20497"
+  },
+  {
+    "title": "Bolsas de Regalo con Diseños Divertidos",
+    "description": "Paquete de 10 bolsas de regalo con diseños divertidos y coloridos para presentar tus regalos de manera especial.",
+    "price": 12.49,
+    "thumbnail": "https://example.com/bolsas-regalo-divertidas-thumbnail.jpg",
+    "code": "BRD2022",
+    "stock": 15,
+    "id": "29777a72b775e3152df0d472"
+  },
+  {
+    "title": "Globos Metalizados en Forma de Estrella",
+    "description": "Globos metalizados en forma de estrella para una decoración llamativa y brillante en tu fiesta.",
+    "price": 10.99,
+    "thumbnail": "https://example.com/globos-metalizados-estrella-thumbnail.jpg",
+    "code": "GME2022",
+    "stock": 20,
+    "id": "88b0c258087de2b0b711b7e8"
+  },
+  {
+    "title": "Piñata de Animales para Niños",
+    "description": "Divertida piñata de animales para niños con diseño colorido. Incluye palo y venda para los ojos.",
+    "price": 14.99,
+    "thumbnail": "https://example.com/pinata-animales-thumbnail.jpg",
+    "code": "PA2022",
+    "stock": 25,
+    "id": "0ba987c7030fb748e8d57c49"
+  },
+  {
+    "title": "Kit de Decoración para Fiesta Hawaiana",
+    "description": "Kit completo de decoración para una fiesta temática hawaiana. Incluye guirnaldas, flores y pancartas.",
+    "price": 26.99,
+    "thumbnail": "https://example.com/kit-fiesta-hawaiana-thumbnail.jpg",
+    "code": "KFH2022",
+    "stock": 15,
+    "id": "6d3ca72fd9e7687168b4ec97"
+  },
+  {
+    "title": "Gafas Divertidas para Fotomatón",
+    "description": "Conjunto de 10 gafas divertidas para usar en un fotomatón y agregar diversión a tus fotos de fiesta.",
+    "price": 9.99,
+    "thumbnail": "https://example.com/gafas-fotomaton-thumbnail.jpg",
+    "code": "GDF2022",
+    "stock": 30,
+    "id": "8fe01d49adaa03726e2668a1"
   }
 ]

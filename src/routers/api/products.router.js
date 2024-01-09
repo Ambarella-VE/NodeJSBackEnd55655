@@ -8,7 +8,7 @@ import { cliError, cliMsg, cliSuccess } from '../../lib/functions/cliLogs.js';
 const router = express.Router();
 
 //? getAll
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
   productsManager
     .getAll()
     .then((products) => {
@@ -30,19 +30,13 @@ router.get('/', (req, res) => {
       }
     })
     .catch((err) => {
-      const msg = err.message
-      cliError(msg);
-      res.json({
-        statusCode: 500,
-        response: msg,
-      });
-      cliMsg('Response sent to requester');
+      next(err);
     });
 });
 
 //? add
-router.post('/', (req, res) => {
-  const newProduct = req.body; // Assuming the new product data is in the request body
+router.post('/', (req, res, next) => {
+  const newProduct = req.body;
   productsManager
     .add(newProduct)
     .then((createdProduct) => {
@@ -54,18 +48,27 @@ router.post('/', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      const msg = err.message
-      cliError(msg);
-      res.json({
-        statusCode: 400,
-        response: msg
-      });
+      next(err);
+    });
+});
+
+//? add bulk
+router.post('/bulk', (req, res, next) => {
+  const newProducts = req.body;
+  productsManager
+    .addBulk(newProducts)
+    .then((createdProducts) => {
+      cliSuccess('Products added successfully');
+      res.json(createdProducts);
       cliMsg('Response sent to requester');
+    })
+    .catch((err) => {
+      next(err)
     });
 });
 
 //? update
-router.put('/:pid', (req, res) => {
+router.put('/:pid', (req, res, next) => {
   const userId = req.params.pid;
   const newProductData = req.body;
   usersManager
@@ -79,18 +82,12 @@ router.put('/:pid', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      const msg = err.message
-      cliError(msg);
-      res.json({
-        statusCode: 400,
-        response: msg
-      });
-      cliMsg('Response sent to requester');
+      next(err);
     });
 });
 
 //? get by ID
-router.get('/:pid', (req, res) => {
+router.get('/:pid', (req, res, next) => {
   const productId = req.params.pid;
   productsManager
     .get(productId)
@@ -103,18 +100,12 @@ router.get('/:pid', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      const msg = err.message
-      cliError(msg);
-      res.json({
-        statusCode: 404,
-        response: msg,
-      });
-      cliMsg('Response sent to requester');
+      next(err);
     });
 });
 
 //? delete by ID
-router.delete('/:pid', (req, res) => {
+router.delete('/:pid', (req, res, next) => {
   const productId = req.params.pid;
   productsManager
     .delete(productId)
@@ -128,13 +119,7 @@ router.delete('/:pid', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      const msg = err.message
-      cliError(msg);
-      res.json({
-        statusCode: 404,
-        response: msg
-      });
-      cliMsg('Response sent to requester');
+      next(err);
     });
 });
 

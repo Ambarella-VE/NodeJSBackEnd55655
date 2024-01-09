@@ -8,7 +8,7 @@ import { cliError, cliMsg, cliSuccess } from '../../lib/functions/cliLogs.js';
 const router = express.Router();
 
 //? getAll
-router.get('/', (req, res) => {
+router.get('/', (req, res, next) => {
   usersManager
     .getAll()
     .then((users) => {
@@ -30,18 +30,12 @@ router.get('/', (req, res) => {
       }
     })
     .catch((err) => {
-      const msg = err.message
-      cliError(msg);
-      res.json({
-        statusCode: 500,
-        response: msg
-      });
-      cliMsg('Response sent to requester');
+      next(err);
     });
 });
 
 //? add
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
   const newUser = req.body; // Assuming the new user data is in the request body
   usersManager
     .add(newUser)
@@ -54,18 +48,27 @@ router.post('/', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      const msg = err.message
-      cliError(msg);
-      res.json({
-        statusCode: 400,
-        response: msg
-      });
+      next(err);
+    });
+});
+
+//? add bulk
+router.post('/bulk', (req, res, next) => {
+  const newUsers = req.body;
+  usersManager
+    .addBulk(newUsers)
+    .then((createdUsers) => {
+      cliSuccess('Users added successfully');
+      res.json(createdUsers);
       cliMsg('Response sent to requester');
+    })
+    .catch((err) => {
+      next(err)
     });
 });
 
 //? update
-router.put('/:uid', (req, res) => {
+router.put('/:uid', (req, res, next) => {
   const userId = req.params.uid;
   const newUserData = req.body;
   usersManager
@@ -79,18 +82,12 @@ router.put('/:uid', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      const msg = err.message
-      cliError(msg);
-      res.json({
-        statusCode: 400,
-        response: msg
-      });
-      cliMsg('Response sent to requester');
+      next(err);
     });
 });
 
 //? get by ID
-router.get('/:uid', (req, res) => {
+router.get('/:uid', (req, res, next) => {
   const userId = req.params.uid;
   usersManager
     .get(userId)
@@ -103,18 +100,12 @@ router.get('/:uid', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      const msg = err.message
-      cliError(msg);
-      res.json({
-        statusCode: 404,
-        response: msg,
-      });
-      cliMsg('Response sent to requester');
+      next(err);
     });
 });
 
 //? delete by ID
-router.delete('/:uid', (req, res) => {
+router.delete('/:uid', (req, res, next) => {
   const userId = req.params.uid;
   usersManager
     .delete(userId)
@@ -127,13 +118,7 @@ router.delete('/:uid', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      const msg = err.message
-      cliError(msg);
-      res.json({
-        statusCode: 404,
-        response: msg
-      });
-      cliMsg('Response sent to requester');
+      next(err);
     });
 });
 

@@ -2,29 +2,29 @@
 /*                 //* server.js                */
 /* -------------------------------------------- */
 import express from 'express';
-import { cliMsg, cliNotice } from './src/lib/functions/cliLogs.js';
+import { cliNotice } from './src/lib/functions/cliLogs.js';
 import router from './src/routers/index.router.js';
 import morgan from 'morgan';
 import __dirname from './utils.js';
+import {
+  errorHandler,
+  pathHandler
+} from './src/middlewares/index.mid.js';
 
 /* --------- //# Server Configuration --------- */
 const server = express();
 const PORT = process.env.PORT || 8080;
-
-/* -------------- //# Middlewares ------------- */
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(`${__dirname}/public`));
-server.use(morgan('dev'));
 
 /* ---------------- //# Routes ---------------- */
-server.get('/', (req, res) => {
-  res.json({
-    statusCode: 200,
-  });
-});
-
 server.use('/', router);
+
+/* -------------- //# Middlewares ------------- */
+server.use(morgan('dev'));
+server.use(errorHandler)
+server.use(pathHandler)
 
 /* ------------- //# Raise Server ------------- */
 function ready() {

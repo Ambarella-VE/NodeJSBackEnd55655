@@ -1,7 +1,7 @@
 /* -------------------------------------------- */
 /*              //* orders.router.js            */
 /* -------------------------------------------- */
-import express, { response } from 'express';
+import express from 'express';
 import ordersManager from '../../data/memory/orders.js';
 import { cliError, cliMsg, cliSuccess } from '../../lib/functions/cliLogs.js';
 
@@ -9,7 +9,7 @@ import { cliError, cliMsg, cliSuccess } from '../../lib/functions/cliLogs.js';
 const router = express.Router();
 
 //? getAll
-router.get('/',(req,res)=>{
+router.get('/',(req,res, next)=>{
   ordersManager
     .getAll()
     .then((orders) =>{
@@ -30,18 +30,12 @@ router.get('/',(req,res)=>{
       };
     })
     .catch((err) => {
-      const msg = err.message
-      cliError(msg);
-      res.json({
-        statusCode: 500,
-        response: msg
-      });
-      cliMsg('Response sent to requester');
+      next(err);
     });
 })
 
 //? add
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
   const newOrder = req.body; // Assuming the new user data is in the request body
   ordersManager
     .add(newOrder)
@@ -54,18 +48,27 @@ router.post('/', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      const msg = err.message
-      cliError(msg);
-      res.json({
-        statusCode: 400,
-        response: msg
-      });
+      next(err);
+    });
+});
+
+//? add bulk
+router.post('/bulk', (req, res, next) => {
+  const newOrders = req.body;
+  ordersManager
+    .addBulk(newOrders)
+    .then((createdOrders) => {
+      cliSuccess('Products added successfully');
+      res.json(createdOrders);
       cliMsg('Response sent to requester');
+    })
+    .catch((err) => {
+      next(err)
     });
 });
 
 //? update
-router.put('/:oid', (req, res) => {
+router.put('/:oid', (req, res, next) => {
   const orderId = req.params.oid;
   const newOrderData = req.body;
   ordersManager
@@ -79,18 +82,12 @@ router.put('/:oid', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      const msg = err.message
-      cliError(msg);
-      res.json({
-        statusCode: 400,
-        response: msg
-      });
-      cliMsg('Response sent to requester');
+      next(err);
     });
 });
 
 //? get by Order ID
-router.get('/order/:oid', (req, res) => {
+router.get('/order/:oid', (req, res, next) => {
   const orderId = req.params.oid;
   ordersManager
     .get(orderId)
@@ -103,18 +100,12 @@ router.get('/order/:oid', (req, res) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      const msg = err.message
-      cliError(msg);
-      res.json({
-        statusCode: 404,
-        response: msg
-      });
-      cliMsg('Response sent to requester');
+      next(err);
     });
 });
 
 //? get by User ID
-router.get('/:uid', (req, res) => {
+router.get('/:uid', (req, res, next) => {
   const userId = req.params.uid;
   ordersManager
     .getByUser(userId)
@@ -136,13 +127,7 @@ router.get('/:uid', (req, res) => {
       }
     })
     .catch((err) =>{
-      const msg = err.message
-      cliError(msg)
-      res.json({
-        statusCode: 404,
-        response: msg
-      });
-      cliMsg('Response sent to requester');
+      next(err);
     })
 });
 
