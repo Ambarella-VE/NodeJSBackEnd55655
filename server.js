@@ -2,6 +2,8 @@
 /*                 //* server.js                */
 /* -------------------------------------------- */
 import express from 'express';
+import { createServer } from 'http';
+import { Server } from 'socket.io';
 import { cliNotice } from './src/lib/functions/cliLogs.js';
 import router from './src/routers/index.router.js';
 import morgan from 'morgan';
@@ -14,6 +16,8 @@ import {
 /* --------- //# Server Configuration --------- */
 const server = express();
 const PORT = process.env.PORT || 8080;
+const httpServer = createServer(server);
+const socketServer = new Server(httpServer);
 server.use(express.json());
 server.use(express.urlencoded({ extended: true }));
 server.use(express.static(`${__dirname}/public`));
