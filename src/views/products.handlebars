@@ -1,0 +1,34 @@
+<div class="text-center">
+  {{#if this}}
+    <div class="d-flex align-content-around flex-wrap gap-2">
+      {{#each products}}
+        <div class="card" style="width: 18rem;">
+          <img src={{this.thumbnail}} class="card-img-top" alt={{this.title}}>
+          <div class="card-body">
+            <h5 class="card-title">{{this.title}}</h5>
+            <p class="card-text">{{this.description}}</p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">code: {{this.code}}</li>
+            <li class="list-group-item">stock: {{this.stock}}</li>
+          </ul>
+          <div class="card-footer">
+            $ {{this.price}}
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <div class="card">
+      <div class="card-header">
+        No Products
+      </div>
+      <div class="card-body">
+        <blockquote class="blockquote mb-0">
+          <p>A well-known quote, contained in a blockquote element.</p>
+          <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+        </blockquote>
+      </div>
+    </div>
+  {{/if}}
+</div>

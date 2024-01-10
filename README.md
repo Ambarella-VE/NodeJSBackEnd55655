@@ -25,6 +25,7 @@
   - [Rutas y Endpoints](#rutas-y-endpoints)
     - [Cambios en la Estructura de Archivos](#cambios-en-la-estructura-de-archivos)
   - [Archivo `orders.js`](#archivo-ordersjs)
+- [Sprint 5 - Clases 9 y 10](#sprint-5---clases-9-y-10)
 
 ## Sprint 1 - Clases 1 y 2
 
@@ -149,3 +150,7 @@ Se creó un nuevo archivo `orders.router.js` en la carpeta `src/api/routes` para
 ### Archivo `orders.js`
 
 Se creó un nuevo archivo `orders.js` en la carpeta `src/data/memory` para almacenar la instancia de `OrdersManager` y gestionar los datos de los pedidos.
+
+## Sprint 5 - Clases 9 y 10
+
+En progreso
