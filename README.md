@@ -16,6 +16,15 @@
     - [Manejo de Errores y Logs](#manejo-de-errores-y-logs)
     - [Funciones Utilitarias](#funciones-utilitarias)
 - [Sprint 4 - Clases 7 y 8](#sprint-4---clases-7-y-8)
+  - [Clase `ListManager` (Actualización 2)](#clase-listmanager-actualización-2)
+  - [Clase `OrdersManager`](#clase-ordersmanager)
+  - [Middlewares](#middlewares)
+    - [Middleware `errorHandler`](#middleware-errorhandler)
+    - [Middleware `pathHandler`](#middleware-pathhandler)
+    - [Middleware Morgan para Registro de Solicitudes](#middleware-morgan-para-registro-de-solicitudes)
+  - [Rutas y Endpoints](#rutas-y-endpoints)
+    - [Cambios en la Estructura de Archivos](#cambios-en-la-estructura-de-archivos)
+  - [Archivo `orders.js`](#archivo-ordersjs)
 
 ## Sprint 1 - Clases 1 y 2
 
@@ -97,3 +106,46 @@ La clase `UsersManager` también verifica la existencia de usuarios con el mismo
 - Estas funciones se utilizaron en los logs y en otras partes del código para mejorar la legibilidad.
 
 ## Sprint 4 - Clases 7 y 8
+
+### Clase `ListManager` (Actualización 2)
+
+La clase `ListManager` fue actualizada para incluir la función `addBulk`. Esta función permite agregar múltiples elementos a la lista de una sola vez, mejorando la eficiencia y facilitando la inserción de datos masivos.
+
+- **`addBulk`**: Agrega una lista de nuevos elementos a la lista existente, asignándoles ID único a cada elemento.
+- **`add`** (Actualización): Con el objetivo de mejorar la experiencia del cliente, se ha modificado este método para proporcionar un comportamiento más consistente. Ahora, en lugar de devolver un error al intentar agregar un elemento que ya existe, el método retorna el elemento existente junto con su identificador único. Este cambio permite una integración más fluida con las listas que extienden ListManager y que han personalizado el método add para elementos que no pueden estar duplicados. En cualquier caso, el método garantiza que no se dupliquen elementos en la lista.
+
+### Clase `OrdersManager`
+
+Se añadió la clase `OrdersManager` que extiende la funcionalidad de `ListManager`. Esta clase gestiona los pedidos y ofrece operaciones específicas relacionadas con ellos.
+
+- **`getByUser`**: Recupera los pedidos asociados a un usuario específico mediante su ID. Si no se encuentran pedidos para el usuario, se lanza un error indicando que no se encontraron.
+
+### Middlewares
+
+#### Middleware `errorHandler`
+
+Se implementó un middleware llamado `errorHandler` para manejar errores en las solicitudes. Este middleware captura los errores, registra mensajes en la consola y responde al cliente con un código de estado y un mensaje correspondiente al error.
+
+#### Middleware `pathHandler`
+
+Se agregó el middleware `pathHandler` para manejar solicitudes a rutas no definidas. Si un usuario intenta acceder a una ruta no existente, este middleware captura la solicitud, registra un mensaje en la consola y responde al cliente con un código de estado 404.
+
+#### Middleware Morgan para Registro de Solicitudes
+
+- **`morgan` (Nueva Implementación):** Se ha incorporado el middleware `morgan` para el registro detallado de solicitudes HTTP. Esta herramienta proporciona información valiosa sobre las solicitudes recibidas, como la URL, el método HTTP, el código de estado y otros detalles. Facilita el seguimiento y la depuración de las solicitudes, mejorando la visibilidad del flujo de trabajo del servidor.
+
+Este middleware se utiliza para registrar las solicitudes entrantes, lo que resulta útil para el análisis y la monitorización del rendimiento del servidor. Los registros detallados se muestran en la consola, proporcionando una herramienta adicional para el mantenimiento y la optimización continuos del sistema.
+
+### Rutas y Endpoints
+
+Se creó un nuevo archivo `orders.router.js` en la carpeta `src/api/routes` para gestionar las rutas y endpoints relacionados con los pedidos. Este archivo define las operaciones CRUD para los pedidos, incluyendo la recuperación de todos los pedidos, la adición de nuevos pedidos, la actualización de pedidos existentes y la recuperación de pedidos por ID de usuario.
+
+#### Cambios en la Estructura de Archivos
+
+- Se realizaron cambios significativos en la estructura de archivos para mejorar la organización del proyecto.
+- Ahora, las rutas se encuentran en el directorio `src/routers/api` en lugar de `src/api/routes`.
+- Además, se introdujo un nuevo directorio `src/middlewares` para alojar los archivos relacionados con middlewares.
+
+### Archivo `orders.js`
+
+Se creó un nuevo archivo `orders.js` en la carpeta `src/data/memory` para almacenar la instancia de `OrdersManager` y gestionar los datos de los pedidos.
