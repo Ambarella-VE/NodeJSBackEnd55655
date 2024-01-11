@@ -1,7 +1,7 @@
 /* -------------------------------------------- */
 /*             //* ProductsManager.js           */
 /* -------------------------------------------- */
-import ListManager from "../listManager/ListManager.js";
+import ListManager from '../listManager/ListManager.js';
 
 export default class ProductsManager extends ListManager {
   constructor(path) {
@@ -10,15 +10,21 @@ export default class ProductsManager extends ListManager {
 
   add(item) {
     return new Promise((resolve, reject) => {
-      const itemExists = this.items.find(
-        (product) => product.code === item.code
-      );
-      if (itemExists) {
-        reject(
-          new Error(`Product with the same code ${item.code} already exists`)
+      try{
+        const itemExists = this.items.find(
+          (product) => product.code === item.code,
         );
-      } else {
-        super.add(item).then(resolve).catch(reject);
+        if (itemExists) {
+          resolve({
+            statusCode: 400,
+            response: itemExists
+          }
+          );
+        } else {
+          super.add(item)
+        }
+      } catch (err){
+        reject(new Error(`Error adding item: ${err.message}`));
       }
     });
   }
