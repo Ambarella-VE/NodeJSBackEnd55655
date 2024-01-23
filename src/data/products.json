@@ -198,42 +198,6 @@
     "id": "8ae5671b58548299f9cb49b9"
   },
   {
-    "title": "Globos de Fiesta",
-    "description": "Paquete de 20 globos de colores variados para decorar tu fiesta.",
-    "price": 9.99,
-    "thumbnail": "https://example.com/globos-thumbnail.jpg",
-    "code": "GF2022",
-    "stock": 25,
-    "id": "a8cd2e0a7b5bf82aaba228ea"
-  },
-  {
-    "title": "Piñata de Cumpleaños",
-    "description": "Divertida piñata con diseño de cumpleaños para alegrar la fiesta. Incluye palo y venda para los ojos.",
-    "price": 14.99,
-    "thumbnail": "https://example.com/pinata-thumbnail.jpg",
-    "code": "PC2022",
-    "stock": 30,
-    "id": "a386ad79ff86f268d9974055"
-  },
-  {
-    "title": "Globos de Fiesta",
-    "description": "Paquete de 100 globos de colores variados para decorar tu fiesta.",
-    "price": 25.99,
-    "thumbnail": "https://example.com/globos-thumbnail.jpg",
-    "code": "GA2023",
-    "stock": 25,
-    "id": "6c67f7c8549dc18d4c64054b"
-  },
-  {
-    "title": "Decoración de Fiesta de Neón",
-    "description": "Paquete de decoración para fiesta con colores vibrantes y temática de neón. Incluye globos, pancartas y más.",
-    "price": 24.99,
-    "thumbnail": "https://example.com/decoracion-neon-thumbnail.jpg",
-    "code": "DN2022",
-    "stock": 18,
-    "id": "d49140e2417253d03360fdd5"
-  },
-  {
     "title": "Velas de Cumpleaños Brillantes",
     "description": "Conjunto de 12 velas brillantes con soportes decorativos para dar un toque especial a tu pastel de cumpleaños.",
     "price": 8.49,
