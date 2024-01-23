@@ -17,7 +17,8 @@ addBtn.addEventListener("click", (event) =>{
     code: document.querySelector("#code-i").value,
     stock: document.querySelector("#stock-i").value,
     thumbnail: document.querySelector("#thumbnail-i").value
-  }
-  socket.emit("addProduct", product);
+  };
   form.reset();
+  socket.emit("addProduct", product);
+  
 });

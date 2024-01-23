@@ -196,7 +196,8 @@
     "code": "CC3033",
     "stock": 15,
     "id": "8ae5671b58548299f9cb49b9"
-  },  {
+  },
+  {
     "title": "Globos de Fiesta",
     "description": "Paquete de 20 globos de colores variados para decorar tu fiesta.",
     "price": 9.99,
@@ -375,5 +376,32 @@
     "code": "GDF2022",
     "stock": 30,
     "id": "8fe01d49adaa03726e2668a1"
+  },
+  {
+    "title": "Gafas de Fiesta",
+    "description": "Pack de 10 gafas de colores brillantes para animar tus celebraciones y eventos.",
+    "price": "21.99",
+    "code": "GF1806",
+    "stock": "30",
+    "thumbnail": "/img/balloon.jpeg",
+    "id": "149b3c26d67eabefd3370879"
+  },
+  {
+    "title": "Gafas de Fiesta",
+    "description": "Pack de 12 gafas de colores brillantes para animar tus celebraciones y eventos.",
+    "price": "23.99",
+    "code": "GF1807",
+    "stock": "20",
+    "thumbnail": "/img/balloon.jpeg",
+    "id": "db782652351809f3cc24940f"
+  },
+  {
+    "title": "Piñata Estelar",
+    "description": "Piñata con forma de estrella llena de sorpresas para alegrar tus celebraciones.",
+    "price": "39.99",
+    "code": "PE4567",
+    "stock": "25",
+    "thumbnail": "/img/balloon.jpeg",
+    "id": "c456e7471dab0df81862dd2d"
   }
 ]

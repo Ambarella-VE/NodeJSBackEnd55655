@@ -10,7 +10,6 @@ export default async (socket) => {
   socket.emit('products', await products.getAll())
   socket.on('addProduct', async (data) => {
     products.add(data);
-    socketServer.emit('products', await products.getAll())
-    .catch((err) => cliError(err))
+    socketServer.emit('products', await products.getAll().catch((err) => cliError(err)))
   })
 };
