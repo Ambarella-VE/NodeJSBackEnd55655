@@ -367,5 +367,14 @@
     "stock": "25",
     "thumbnail": "/img/balloon.jpeg",
     "id": "c456e7471dab0df81862dd2d"
+  },
+  {
+    "title": "Collares Luminosos",
+    "description": "Conjunto de 15 collares luminosos para iluminar tus noches de fiesta.",
+    "price": "29.99",
+    "code": "CL2021",
+    "stock": "40",
+    "thumbnail": "/img/balloon.jpeg",
+    "id": "7699c2cae99da08bf3815702"
   }
 ]
