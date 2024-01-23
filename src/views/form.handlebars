@@ -1,39 +1,42 @@
+{{!-- form.handlebars --}}
 <h2 class="text-center py-5">
   New Product
 </h2>
 
 <div class="text-center m-auto" style="max-width: 600px;">
-  <form class="d-flex flex-column justify-content-center items-align-center">
+  <form class="d-flex flex-column justify-content-center items-align-center" id="addForm">
     <div class="input-group mb-3">
       <span class="input-group-text" id="title">Title</span>
-      <input type="text" class="form-control" aria-label="Title" aria-describedby="title">
+      <input type="text" class="form-control" aria-label="Title" aria-describedby="title" id="title-i">
     </div>
 
     <div class="input-group mb-3">
       <span class="input-group-text">Description</span>
-      <textarea class="form-control" aria-label="Description"></textarea>
+      <textarea class="form-control" aria-label="Description" id="description-i"></textarea>
     </div>
 
     <div class="input-group mb-3">
       <span class="input-group-text">$</span>
-      <input type="number" class="form-control" aria-label="Price">
+      <input type="number" class="form-control" aria-label="Price" id="price-i">
     </div>
 
     <div class="input-group mb-3">
       <span class="input-group-text" id="code">Code</span>
-      <input type="text" class="form-control" aria-label="Code" aria-describedby="code">
+      <input type="text" class="form-control" aria-label="Code" aria-describedby="code" id="code-i">
     </div>
     
     <div class="input-group mb-3">
       <span class="input-group-text">Initial stock</span>
-      <input type="number" class="form-control" aria-label="Stock">
+      <input type="number" class="form-control" aria-label="Stock" id="stock-i">
     </div>
 
     <div class="input-group mb-3">
       <span class="input-group-text" id="thumbnail">Thumbnail</span>
-      <input type="text" class="form-control" aria-label="thumbnail" aria-describedby="thumbnail">
+      <input type="text" class="form-control" aria-label="thumbnail" aria-describedby="thumbnail" id="thumbnail-i">
     </div>
 
-    <button type="submit" class="btn btn-secondary">Add</button>
+    <button id="addProduct" type="button" class="btn btn-secondary">Add</button>
   </form>
 </div>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/form.js"></script>

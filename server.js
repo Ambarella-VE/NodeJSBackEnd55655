@@ -13,12 +13,14 @@ import {
   pathHandler
 } from './src/middlewares/index.mid.js';
 import {engine} from 'express-handlebars';
+import socketUtils from './src/utils/socket.utils.js'
 
 /* --------- //# Server Configuration --------- */
 const server = express();
 const PORT = process.env.PORT || 8080;
 const httpServer = createServer(server);
-const socketServer = new Server(httpServer);
+export const socketServer = new Server(httpServer);
+socketServer.on('connect', socketUtils)
 server.engine('handlebars', engine());
 server.set('view engine', 'handlebars');
 server.set('views', `${__dirname}/src/views`);
@@ -38,4 +40,4 @@ server.use(pathHandler)
 function ready() {
   cliNotice(`Server listening... on port ${PORT}`);
 }
-server.listen(PORT, ready());
+httpServer.listen(PORT, ready());

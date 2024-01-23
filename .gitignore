@@ -15,3 +15,5 @@
 node_modules
 test.js
 changes.txt
+src/views/products.bkup.handlebars
+src/data/products.bkup.json

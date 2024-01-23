@@ -15,20 +15,28 @@ router.get('/', (req, res, next) => {
   }
 });
 
-router.get('/real', (req, res, next) =>{
-  productsManager
-  .getAll()
-  .then((products) => {
-    if (products.length > 0) {
-      return res.render('products',{products});
-    } else {
-      return res.render('products',{});
-    }
-  })
-  .catch((err) => {
+router.get('/products', (req, res, next) =>{
+  try{
+    return res.render('products',{ title: "products"});
+  } catch (err) {
     next(err);
-  })
+  }
 });
+
+// router.get('/real', (req, res, next) =>{
+//   productsManager
+//   .getAll()
+//   .then((products) => {
+//     if (products.length > 0) {
+//       return res.render('products',{products});
+//     } else {
+//       return res.render('products',{});
+//     }
+//   })
+//   .catch((err) => {
+//     next(err);
+//   })
+// });
 
 router.get('/form', (req, res, next) =>{
   try{
