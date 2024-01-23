@@ -26,6 +26,11 @@
     - [Cambios en la Estructura de Archivos](#cambios-en-la-estructura-de-archivos)
   - [Archivo `orders.js`](#archivo-ordersjs)
 - [Sprint 5 - Clases 9 y 10](#sprint-5---clases-9-y-10)
+  - [Nuevos Archivos y Funcionalidades](#nuevos-archivos-y-funcionalidades)
+    - [`form.js` y `products.js` en `public/`](#formjs-y-productsjs-en-public)
+  - [Nuevas Vistas en `src/views/`](#nuevas-vistas-en-srcviews)
+  - [Nuevos Middlewares y Utilidades en `src/utils/`](#nuevos-middlewares-y-utilidades-en-srcutils)
+  - [Handlebars y Socket.io](#handlebars-y-socketio)
 
 ## Sprint 1 - Clases 1 y 2
 
@@ -153,5 +158,34 @@ Se creó un nuevo archivo `orders.js` en la carpeta `src/data/memory` para almac
 
 ## Sprint 5 - Clases 9 y 10
 
-En progreso
+### Nuevos Archivos y Funcionalidades
 
+#### `form.js` y `products.js` en `public/`
+
+Se crearon dos nuevos archivos, `form.js` y `products.js`, en el directorio `public/`. Estos archivos contienen scripts JavaScript relacionados con la gestión de formularios y productos en el lado del cliente.
+
+### Nuevas Vistas en `src/views/`
+
+Se crearon varias nuevas vistas en el directorio `src/views/`:
+
+- `form.handlebars`: Esta vista representa un formulario para agregar nuevos productos al sistema. Contiene campos para ingresar información detallada sobre el producto.
+
+- `index.handlebars`: La página de inicio del sitio web fue actualizada con una nueva imagen y contenido. Se agregó un enlace para dirigirse a la sección de productos.
+
+- `layouts/main.handlebars`: Se introdujo un nuevo archivo de diseño principal que define la estructura HTML básica para todas las páginas del sitio.
+
+- `products.handlebars`: Esta vista representa la sección de productos del sitio web. Muestra los productos disponibles de manera atractiva.
+
+- `register.handlebars`: La vista de registro ahora presenta un formulario para que los usuarios ingresen sus datos y se registren en el sistema.
+
+### Nuevos Middlewares y Utilidades en `src/utils/`
+
+Se incorporaron los siguientes elementos en el directorio `src/utils/`:
+
+- `socket.utils.js`: Este archivo define un script JavaScript que utiliza el módulo `socket.io` para gestionar la comunicación en tiempo real con el servidor. Se encarga de la emisión y recepción de eventos relacionados con los productos.
+
+### Handlebars y Socket.io
+
+Se introdujo el motor de plantillas Handlebars para facilitar el rendering de las vistas en el lado del servidor, proporcionando una separación más clara entre la lógica del servidor y las vistas del cliente.
+
+Adicionalmente, se implementó Socket.io para permitir la comunicación en tiempo real entre el servidor y el cliente. Esto se utiliza en `socket.utils.js` para gestionar eventos relacionados con los productos y mantener a los usuarios actualizados en tiempo real sobre cambios en el sistema.
