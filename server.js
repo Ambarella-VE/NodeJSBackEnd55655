@@ -14,6 +14,8 @@ import {
 } from './src/middlewares/index.mid.js';
 import {engine} from 'express-handlebars';
 import socketUtils from './src/utils/socket.utils.js'
+import 'dotenv/config.js';
+import { connectDB } from './src/utils/db.utils.js';
 
 /* --------- //# Server Configuration --------- */
 const server = express();
@@ -39,5 +41,6 @@ server.use(pathHandler)
 /* ------------- //# Raise Server ------------- */
 function ready() {
   cliNotice(`Server listening... on port ${PORT}`);
+  connectDB();
 }
 httpServer.listen(PORT, ready());
