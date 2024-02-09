@@ -31,7 +31,7 @@
   - [Nuevas Vistas en `src/views/`](#nuevas-vistas-en-srcviews)
   - [Nuevos Middlewares y Utilidades en `src/utils/`](#nuevos-middlewares-y-utilidades-en-srcutils)
   - [Handlebars y Socket.io](#handlebars-y-socketio)
-- [Sprint 6 - Clases 11-15](#sprint-6---clases-11-15)
+- [Sprint 6 - Clases 11-17](#sprint-6---clases-11-17)
 
 ## Sprint 1 - Clases 1 y 2
 
@@ -191,4 +191,4 @@ Se introdujo el motor de plantillas Handlebars para facilitar el rendering de la
 
 Adicionalmente, se implementó Socket.io para permitir la comunicación en tiempo real entre el servidor y el cliente. Esto se utiliza en `socket.utils.js` para gestionar eventos relacionados con los productos y mantener a los usuarios actualizados en tiempo real sobre cambios en el sistema.
 
-## Sprint 6 - Clases 11-15
+## Sprint 6 - Clases 11-17

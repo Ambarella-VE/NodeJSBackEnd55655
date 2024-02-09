@@ -1,7 +1,7 @@
 /* -------------------------------------------- */
 /*              //* MongoManager.js             */
 /* -------------------------------------------- */
-import { cliError } from '../../functions/cliLogs.js';
+import { cliMsg } from '../../functions/cliLogs.js';
 
 export default class MongoManager {
   constructor(model) {
@@ -47,7 +47,11 @@ export default class MongoManager {
 
   };
 
-  async get(id) {
+  async get({filter,order,limit,sort}) {
+
+  };
+
+  async getOne(query) {
 
   };
 
@@ -59,4 +63,15 @@ export default class MongoManager {
 
   };
   
+  async stats({filter}){
+    return new Promise(async (resolve, reject) => {
+      try {
+        let stats = await this.model.find(filter).explain('executionStats');
+        cliMsg(stats)
+        
+      } catch (error) {
+        reject(new Error(error.message))
+      }
+    })
+  }
 }
