@@ -8,12 +8,9 @@ import { cliNotice } from './src/lib/functions/cliLogs.js';
 import router from './src/routers/index.router.js';
 import morgan from 'morgan';
 import __dirname from './utils.js';
-import {
-  errorHandler,
-  pathHandler
-} from './src/middlewares/index.mid.js';
-import {engine} from 'express-handlebars';
-import socketUtils from './src/utils/socket.utils.js'
+import { errorHandler, pathHandler } from './src/middlewares/index.mid.js';
+import { engine } from 'express-handlebars';
+import socketUtils from './src/utils/socket.utils.js';
 import 'dotenv/config.js';
 import { connectDB } from './src/utils/db.utils.js';
 
@@ -22,7 +19,7 @@ const server = express();
 const PORT = process.env.PORT || 8080;
 const httpServer = createServer(server);
 export const socketServer = new Server(httpServer);
-socketServer.on('connect', socketUtils)
+socketServer.on('connect', socketUtils);
 server.engine('handlebars', engine());
 server.set('view engine', 'handlebars');
 server.set('views', `${__dirname}/src/views`);
@@ -35,8 +32,8 @@ server.use('/', router);
 
 /* -------------- //# Middlewares ------------- */
 server.use(morgan('dev'));
-server.use(errorHandler)
-server.use(pathHandler)
+server.use(errorHandler);
+server.use(pathHandler);
 
 /* ------------- //# Raise Server ------------- */
 function ready() {

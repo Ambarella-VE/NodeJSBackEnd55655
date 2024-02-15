@@ -15,22 +15,22 @@ export default class UsersManager extends ListManager {
     return new Promise((resolve, reject) => {
       try {
         const itemExists = this.items.find((user) => user.email === item.email);
-      if (itemExists) {
-        resolve({
-          statusCode: 400,
-          response: itemExists
-        });
-      } else {
-        const newUser = {
-          ...item,
-          fName: toTitleCase(item.fName),
-          lName: toTitleCase(item.lName),
-        };
-        super.add(newUser)
+        if (itemExists) {
+          resolve({
+            statusCode: 400,
+            response: itemExists,
+          });
+        } else {
+          const newUser = {
+            ...item,
+            fName: toTitleCase(item.fName),
+            lName: toTitleCase(item.lName),
+          };
+          super.add(newUser);
+        }
+      } catch (err) {
+        reject(new Error(`Error adding item: ${err.message}`));
       }
-    } catch (err) {
-      reject(new Error(`Error adding item: ${err.message}`));
-    }
     });
   }
 }

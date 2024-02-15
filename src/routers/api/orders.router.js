@@ -5,34 +5,33 @@ import express from 'express';
 import ordersManager from '../../data/memory/orders.js';
 import { cliError, cliMsg, cliSuccess } from '../../lib/functions/cliLogs.js';
 
-
 const router = express.Router();
 
 //? getAll
-router.get('/',(req,res, next)=>{
+router.get('/', (req, res, next) => {
   ordersManager
     .getAll()
-    .then((orders) =>{
+    .then((orders) => {
       if (orders.length > 0) {
         cliSuccess(`${orders.length} orders found`);
         res.json({
           statusCode: 200,
-          response: orders
+          response: orders,
         });
       } else {
-        const msg = 'No orders found' 
+        const msg = 'No orders found';
         cliError(msg);
         res.json({
           statusCode: 404,
-          response: msg
+          response: msg,
         });
-        cliMsg('Response sent to requester')
-      };
+        cliMsg('Response sent to requester');
+      }
     })
     .catch((err) => {
       next(err);
     });
-})
+});
 
 //? add
 router.post('/', (req, res, next) => {
@@ -43,7 +42,7 @@ router.post('/', (req, res, next) => {
       cliSuccess(`Order added with id ${createdOrder.id}`);
       res.json({
         statusCode: 201,
-        response: createdOrder
+        response: createdOrder,
       });
       cliMsg('Response sent to requester');
     })
@@ -63,7 +62,7 @@ router.post('/bulk', (req, res, next) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      next(err)
+      next(err);
     });
 });
 
@@ -73,11 +72,11 @@ router.put('/:oid', (req, res, next) => {
   const newOrderData = req.body;
   ordersManager
     .update(orderId, newOrderData)
-    .then(updatedOrder => {
+    .then((updatedOrder) => {
       cliSuccess(`Order with id ${updatedOrder.id} updated`);
       res.json({
         statusCode: 200,
-        response: updatedOrder
+        response: updatedOrder,
       });
       cliMsg('Response sent to requester');
     })
@@ -95,7 +94,7 @@ router.get('/order/:oid', (req, res, next) => {
       cliSuccess(`Order with ID ${orderId} found`);
       res.json({
         statusCode: 200,
-        response: order
+        response: order,
       });
       cliMsg('Response sent to requester');
     })
@@ -109,26 +108,26 @@ router.get('/:uid', (req, res, next) => {
   const userId = req.params.uid;
   ordersManager
     .getByUser(userId)
-    .then((orders)=>{
+    .then((orders) => {
       if (orders.length > 0) {
         cliSuccess(`${orders.length} orders found for user ${userId}`);
         res.json({
           statusCode: 200,
-          response: orders
+          response: orders,
         });
-        cliMsg('Response sent to requester')
+        cliMsg('Response sent to requester');
       } else {
-        const msg = `No orders found for user ${userId}`
-        cliError(msg)
+        const msg = `No orders found for user ${userId}`;
+        cliError(msg);
         res.json({
           statusCode: 404,
-          response: msg
-        })
+          response: msg,
+        });
       }
     })
-    .catch((err) =>{
+    .catch((err) => {
       next(err);
-    })
+    });
 });
 
 export default router;

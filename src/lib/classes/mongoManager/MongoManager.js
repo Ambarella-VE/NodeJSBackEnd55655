@@ -12,66 +12,82 @@ export default class MongoManager {
     return new Promise(async (resolve, reject) => {
       try {
         const itemAdded = await this.model.create(item);
-        if (itemAdded) {
-          resolve({
-            statusCode: 201,
-            response: itemAdded
-          })
-        }
+        resolve(itemAdded.id);
       } catch (err) {
-        reject(new Error(`Error adding item: ${err.message}`))
+        reject(new Error(`Error adding item: ${err.message}`));
       }
-    })
-  };
+    });
+  }
 
-  // async create(data) {
-  //   try {
-  //     const itemAdded = await this.model.create(data);
-  //     if (itemAdded) {
-  //       return {
-  //         statusCode: 201,
-  //         response: itemAdded
-  //       };
-  //     }
-  //   } catch (error) {
-  //     throw error;
-  //   }
-  // }
-
-
-  async addBulk(items) {
-
-  };
-
-  async getAll() {
-
-  };
-
-  async get({filter,order,limit,sort}) {
-
-  };
-
-  async getOne(query) {
-
-  };
-
-  async delete(id) {
-
-  };
-
-  async update(id, item) {
-
-  };
-  
-  async stats({filter}){
+  async get(filter = {}, sortAndPaginate = {limit: 10, page: 1, sort: asc}) {
     return new Promise(async (resolve, reject) => {
       try {
-        let stats = await this.model.find(filter).explain('executionStats');
-        cliMsg(stats)
-        
-      } catch (error) {
-        reject(new Error(error.message))
+        const found = await this.model.paginate(filter, sortAndPaginate)
+        if (found) {
+          resolve(found);
+        } else {
+          reject(new Error(`No documents found for this query`))
+        }
+      } catch (err) {
+        reject(new Error(err.message));
       }
     })
+  }
+
+  
+  async getOne(id) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const found = await this.model.findById(id)
+        resolve(found)
+      } catch (err) {
+        reject(new Error(err.message));
+      }
+    })
+  }
+  
+  async getBy(filter) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const found = await this.model.find(filter)
+        resolve(found)
+      } catch (err) {
+        reject(new Error(err.message));
+      }
+    });
+  }
+  
+  async delete(id) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const deleted = await this.model.findByIdAndDelete(id);
+        resolve(deleted);
+      } catch (err) {
+        reject(new Error(err.message));
+      }
+    })
+  }
+  
+  async update(id, item) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const updated = await this.model.findByIdAndUpdate(id,item);
+        resolve(updated)
+      } catch (err) {
+        reject(new Error(err.message));
+      }
+    })
+  }
+
+  async stats({ filter }) {
+    return new Promise(async (resolve, reject) => {
+      try {
+        const  stats = await this.model.find(filter).explain('executionStats');
+        cliMsg(stats);
+        resolve(stats)
+      } catch (err) {
+        reject(new Error(err.message));
+      }
+    });
   }
 }

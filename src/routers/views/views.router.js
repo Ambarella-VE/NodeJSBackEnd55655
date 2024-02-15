@@ -8,16 +8,16 @@ import __dirname from '../../../utils.js';
 const router = express.Router();
 
 router.get('/', (req, res, next) => {
-  try{
-    return res.render('index',{});
+  try {
+    return res.render('index', {});
   } catch (err) {
     next(err);
   }
 });
 
-router.get('/products', (req, res, next) =>{
-  try{
-    return res.render('products',{ title: "products"});
+router.get('/products', (req, res, next) => {
+  try {
+    return res.render('products', { title: 'products' });
   } catch (err) {
     next(err);
   }
@@ -38,17 +38,17 @@ router.get('/products', (req, res, next) =>{
 //   })
 // });
 
-router.get('/form', (req, res, next) =>{
-  try{
-    return res.render('form',{});
+router.get('/form', (req, res, next) => {
+  try {
+    return res.render('form', {});
   } catch (err) {
     next(err);
   }
 });
 
-router.get('/register', (req, res, next) =>{
-  try{
-    return res.render('register',{});
+router.get('/register', (req, res, next) => {
+  try {
+    return res.render('register', {});
   } catch (err) {
     next(err);
   }

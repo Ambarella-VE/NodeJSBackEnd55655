@@ -10,20 +10,19 @@ export default class ProductsManager extends ListManager {
 
   add(item) {
     return new Promise((resolve, reject) => {
-      try{
+      try {
         const itemExists = this.items.find(
           (product) => product.code === item.code,
         );
         if (itemExists) {
           resolve({
             statusCode: 400,
-            response: itemExists
-          }
-          );
+            response: itemExists,
+          });
         } else {
-          super.add(item)
+          super.add(item);
         }
-      } catch (err){
+      } catch (err) {
         reject(new Error(`Error adding item: ${err.message}`));
       }
     });

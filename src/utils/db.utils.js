@@ -9,4 +9,4 @@ export const connectDB = async () => {
     cliError(err.message);
     process.exit(1);
   }
-}
+};

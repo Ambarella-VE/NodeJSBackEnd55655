@@ -2,7 +2,8 @@
 /*             //* products.router.js           */
 /* -------------------------------------------- */
 import express from 'express';
-import productsManager from '../../data/memory/products.js';
+// import productsManager from '../../data/memory/products.js';
+import productsManager from '../../lib/classes/mongoManager/MongoManager.js';
 import { cliError, cliMsg, cliSuccess } from '../../lib/functions/cliLogs.js';
 
 const router = express.Router();
@@ -10,21 +11,21 @@ const router = express.Router();
 //? getAll
 router.get('/', (req, res, next) => {
   productsManager
-    .getAll()
+    .get()
     .then((products) => {
       if (products.length > 0) {
         cliSuccess(`${products.length} Products found`);
         res.json({
           statusCode: 200,
-          response: products
+          response: products,
         });
         cliMsg('Products sent to requester');
       } else {
-        const msg = 'No products found' 
+        const msg = 'No products found';
         cliError(msg);
         res.json({
           statusCode: 404,
-          response: msg
+          response: msg,
         });
         cliMsg('Response sent to requester');
       }
@@ -43,7 +44,7 @@ router.post('/', (req, res, next) => {
       cliSuccess(`Product added with id ${createdProduct.id}`);
       res.json({
         statusCode: 201,
-        response: createdProduct
+        response: createdProduct,
       });
       cliMsg('Response sent to requester');
     })
@@ -53,31 +54,31 @@ router.post('/', (req, res, next) => {
 });
 
 //? add bulk
-router.post('/bulk', (req, res, next) => {
-  const newProducts = req.body;
-  productsManager
-    .addBulk(newProducts)
-    .then((createdProducts) => {
-      cliSuccess('Products added successfully');
-      res.json(createdProducts);
-      cliMsg('Response sent to requester');
-    })
-    .catch((err) => {
-      next(err)
-    });
-});
+// router.post('/bulk', (req, res, next) => {
+//   const newProducts = req.body;
+//   productsManager
+//     .addBulk(newProducts)
+//     .then((createdProducts) => {
+//       cliSuccess('Products added successfully');
+//       res.json(createdProducts);
+//       cliMsg('Response sent to requester');
+//     })
+//     .catch((err) => {
+//       next(err);
+//     });
+// });
 
 //? update
 router.put('/:pid', (req, res, next) => {
-  const userId = req.params.pid;
+  const productId = req.params.pid;
   const newProductData = req.body;
   usersManager
-    .update(userId, newProductData)
-    .then(updatedProduct => {
+    .update(productId, newProductData)
+    .then((updatedProduct) => {
       cliSuccess(`User with id ${updatedProduct.id} updated`);
       res.json({
         statusCode: 200,
-        response: updatedProduct
+        response: updatedProduct,
       });
       cliMsg('Response sent to requester');
     })
@@ -110,11 +111,11 @@ router.delete('/:pid', (req, res, next) => {
   productsManager
     .delete(productId)
     .then(() => {
-      const msg = `Product with ID ${productId} deleted` 
+      const msg = `Product with ID ${productId} deleted`;
       cliSuccess(msg);
       res.json({
         statusCode: 204,
-        response: msg
+        response: msg,
       });
       cliMsg('Response sent to requester');
     })
