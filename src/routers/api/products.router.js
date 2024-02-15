@@ -3,7 +3,7 @@
 /* -------------------------------------------- */
 import express from 'express';
 // import productsManager from '../../data/memory/products.js';
-import productsManager from '../../lib/classes/mongoManager/MongoManager.js';
+import {productsManager} from '../../lib/classes/mongoManager/MongoManager.js';
 import { cliError, cliMsg, cliSuccess } from '../../lib/functions/cliLogs.js';
 
 const router = express.Router();
@@ -11,7 +11,7 @@ const router = express.Router();
 //? getAll
 router.get('/', (req, res, next) => {
   productsManager
-    .get()
+    .get({})
     .then((products) => {
       if (products.length > 0) {
         cliSuccess(`${products.length} Products found`);
@@ -91,7 +91,7 @@ router.put('/:pid', (req, res, next) => {
 router.get('/:pid', (req, res, next) => {
   const productId = req.params.pid;
   productsManager
-    .get(productId)
+    .getOne(productId)
     .then((product) => {
       cliSuccess(`Product with ID ${productId} found`);
       res.json({

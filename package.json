@@ -30,6 +30,7 @@
     "express": "^4.18.2",
     "express-handlebars": "^7.1.2",
     "mongoose": "^8.1.0",
+    "mongoose-paginate-v2": "^1.8.0",
     "mongosh": "^2.1.1",
     "morgan": "^1.10.0",
     "node-emoji": "^2.1.3",

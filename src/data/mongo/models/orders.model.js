@@ -2,6 +2,7 @@
 /*              //* orders.model.js             */
 /* -------------------------------------------- */
 import { model, Schema, Types } from 'mongoose';
+import mongoosePaginate from 'mongoose-paginate-v2'
 
 const collection = 'orders';
 const schema = new Schema({
@@ -11,5 +12,6 @@ const schema = new Schema({
   state: { type: String, default: 'reserved', enum: ['reserved','payed','cancelled','delivered', 'returned'] },
 },{ timestamps: true });
 
+schema.plugin(mongoosePaginate);
 const Order = model(collection, schema);
 export default Order;

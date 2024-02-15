@@ -2,6 +2,9 @@
 /*              //* MongoManager.js             */
 /* -------------------------------------------- */
 import { cliMsg } from '../../functions/cliLogs.js';
+import Product from '../../../data/mongo/models/products.model.js';
+import User from '../../../data/mongo/models/users.model.js';
+import Order from '../../../data/mongo/models/orders.model.js';
 
 export default class MongoManager {
   constructor(model) {
@@ -19,10 +22,10 @@ export default class MongoManager {
     });
   }
 
-  async get(filter = {}, sortAndPaginate = {limit: 10, page: 1, sort: asc}) {
+  async get({filter = {}, options = {page: 0,limit:10}}) {
     return new Promise(async (resolve, reject) => {
       try {
-        const found = await this.model.paginate(filter, sortAndPaginate)
+        const found = await this.model.paginate(filter,options)
         if (found) {
           resolve(found);
         } else {
@@ -91,3 +94,8 @@ export default class MongoManager {
     });
   }
 }
+
+
+export const productsManager = new MongoManager(Product);
+export const usersManager = new MongoManager(User);
+export const ordersManager = new MongoManager(Order);
