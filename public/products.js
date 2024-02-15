@@ -2,13 +2,14 @@
 /*                //* products.js               */
 /* -------------------------------------------- */
 
-console.log('products socket')
+console.log('products socket');
 
 const socket = io();
 
-socket.on('products',  (products) => {
-  const template = products.map(
-    product => `
+socket.on('products', (products) => {
+  const template = products
+    .map(
+      (product) => `
     <div class="card" style="width: 18rem;">
       <img src=${product.thumbnail} class="card-img-top" alt=${product.title}>
       <div class="card-body">
@@ -23,6 +24,8 @@ socket.on('products',  (products) => {
         $ ${product.price}
       </div>
     </div>
-    `).join('');
-    document.querySelector('#products').innerHTML = template;
-  });
+    `,
+    )
+    .join('');
+  document.querySelector('#products').innerHTML = template;
+});

@@ -44,7 +44,7 @@ export default class ListManager {
         await this.saveToFile();
         resolve({
           statusCode: 201,
-          response: newItem
+          response: newItem,
         });
       } catch (err) {
         reject(new Error(`Error adding item: ${err.message}`));
@@ -55,7 +55,7 @@ export default class ListManager {
   addBulk(items) {
     return new Promise(async (resolve, reject) => {
       try {
-        const addedItems = []
+        const addedItems = [];
         for (const item of items) {
           try {
             const addedItem = await this.add(item);
@@ -66,35 +66,36 @@ export default class ListManager {
           }
         }
         if (addedItems.length > 0) {
-          const statusCodes = [...new Set(await addedItems.map(item => item.statusCode))];
-          if (statusCodes.length > 1 ) {
+          const statusCodes = [
+            ...new Set(await addedItems.map((item) => item.statusCode)),
+          ];
+          if (statusCodes.length > 1) {
             resolve({
               statusCode: 207,
-              response: addedItems
-            })
+              response: addedItems,
+            });
           } else if (statusCodes.length > 0) {
             resolve({
               statusCode: statusCodes[0],
-              response: addedItems
-            })
+              response: addedItems,
+            });
           } else {
             resolve({
               statusCode: 201,
-              response: addedItems
-            })  
+              response: addedItems,
+            });
           }
         } else {
           resolve({
             statusCode: 400,
-            response: addedItems
-          })
+            response: addedItems,
+          });
         }
       } catch (err) {
         reject(new Error(`Error adding items: ${err.message}`));
       }
     });
-  } 
-
+  }
 
   getAll() {
     return new Promise((resolve, reject) => {
@@ -137,7 +138,8 @@ export default class ListManager {
         reject(new Error(`Item with ID ${id} not found`));
       } else {
         // Provide a default value for updatedItem if it is undefined
-        const { id: updatedItemId, ...updatedItemWithoutId } = updatedItem || {};
+        const { id: updatedItemId, ...updatedItemWithoutId } =
+          updatedItem || {};
         // Merge the current item's properties (excluding 'id') with updatedItemWithoutId
         this.items[itemIndex] = {
           ...this.items[itemIndex],
@@ -153,7 +155,6 @@ export default class ListManager {
       }
     });
   }
-  
 
   async saveToFile() {
     try {

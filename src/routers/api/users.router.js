@@ -16,15 +16,15 @@ router.get('/', (req, res, next) => {
         cliSuccess(`${users.length} users found`);
         res.json({
           statusCode: 200,
-          response: users
+          response: users,
         });
         cliMsg('Users sent to requester');
       } else {
-        const msg = 'No users found' 
+        const msg = 'No users found';
         cliError(msg);
         res.json({
           statusCode: 404,
-          response: msg
+          response: msg,
         });
         cliMsg('Response sent to requester');
       }
@@ -43,7 +43,7 @@ router.post('/', (req, res, next) => {
       cliSuccess(`User added with id ${createdUser.id}`);
       res.json({
         statusCode: 201,
-        response: createdUser
+        response: createdUser,
       });
       cliMsg('Response sent to requester');
     })
@@ -63,7 +63,7 @@ router.post('/bulk', (req, res, next) => {
       cliMsg('Response sent to requester');
     })
     .catch((err) => {
-      next(err)
+      next(err);
     });
 });
 
@@ -73,11 +73,11 @@ router.put('/:uid', (req, res, next) => {
   const newUserData = req.body;
   usersManager
     .update(userId, newUserData)
-    .then(updatedUser => {
+    .then((updatedUser) => {
       cliSuccess(`User with id ${updatedUser.id} updated`);
       res.json({
         statusCode: 200,
-        response: updatedUser
+        response: updatedUser,
       });
       cliMsg('Response sent to requester');
     })
@@ -95,7 +95,7 @@ router.get('/:uid', (req, res, next) => {
       cliSuccess(`User with ID ${userId} found`);
       res.json({
         statusCode: 200,
-        response: user
+        response: user,
       });
       cliMsg('Response sent to requester');
     })
